@@ -1,5 +1,3 @@
-@import "_variables-bootstrap.scss";
-
 .spinkit-wave {
   width: 50px;
   height: 30px;
@@ -8,7 +6,7 @@
 }
 
 .spinkit-wave > div {
-  background-color: $text-color;
+  background-color: #FFF;
   height: 100%;
   width: 6px;
   display: inline-block;
