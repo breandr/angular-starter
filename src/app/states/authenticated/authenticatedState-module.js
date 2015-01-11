@@ -1,16 +1,15 @@
 //import angular from 'angular';
-import './csnet/csnetState-module';
-import './csnetMaster/csnetMasterState-module';
-import './csnetConsortium/csnetConsortiumState-module';
+import './__APP_NAME_CAMEL_CASED__/__APP_NAME_CAMEL_CASED__State-module';
+import './__APP_NAME_CAMEL_CASED__Master/__APP_NAME_CAMEL_CASED__MasterState-module';
+import './__APP_NAME_CAMEL_CASED__Consortium/__APP_NAME_CAMEL_CASED__ConsortiumState-module';
 import AuthenticatedStateCtrl from './AuthenticatedStateCtrl-controller';
 
 try {
-  angular.module('csnetApp.states.authenticated');
+  angular.module('myApp.states.authenticated');
 } catch (e) {
-  angular.module('csnetApp.states.authenticated', [
-    'csnetApp.states.authenticated.csnet',
-    'csnetApp.states.authenticated.csnetMaster',
-    'csnetApp.states.authenticated.csnetConsortium'
+  angular.module('myApp.states.authenticated', [
+    'myApp.states.authenticated.admin',
+    'myApp.states.authenticated.core'
   ])
     .constant('PATH_TO_AUTHENTICATED_STATE', 'states/authenticated')
     .controller('AuthenticatedStateCtrl', AuthenticatedStateCtrl)
@@ -22,7 +21,7 @@ try {
             title: 'Authenticated',
             security: {
               allowAnonymous: false,
-              requiredPermissions: ['csnet'],
+              requiredPermissions: ['__APP_NAME_CAMEL_CASED__'],
               allowedUserTypes: ['Root', 'User', 'Volunteer', 'Contractor']
             }
           },

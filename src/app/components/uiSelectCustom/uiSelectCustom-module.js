@@ -1,9 +1,9 @@
 //import angular from 'angular';
 
 try {
-  angular.module('csnet.uiSelectCustom');
+  angular.module('__APP_NAME_CAMEL_CASED__.uiSelectCustom');
 } catch (e) {
-  angular.module('csnet.uiSelectCustom', [
+  angular.module('__APP_NAME_CAMEL_CASED__.uiSelectCustom', [
     'ui.select',
     'ui.highlight',
     'ngSanitize'

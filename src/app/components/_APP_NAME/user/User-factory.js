@@ -1,8 +1,8 @@
 import Model from 'components/common/Model';
 
 class UserFactory {
-  constructor($injector, CsnetApi, Users, Organisation, Site, SecurityGroup, Activities, Appointments, Sessions, ActivityTypes, Sites, Teams, ActivityAlerts, ActivityClients, ActivityNotes, ActivityStatuses, ActivityUploads, Audits, BriefContacts, ClientBankAccountAudits, ClientWarnings, Documents, Events, EventWorkers, FBAssessments, FBResponses, ImportFiles, PaymentBatches, PaymentRecoveries, PaymentRecoveryAudits, Payments, PaymentSchedules, PlanActionNotes, PlanActions, ProcessTaskTemplates, Rosters, SharedActivities, UDFValuesUsers, UserNotifications, UserPasswordAudits) {
-    let apiEndpoint = CsnetApi.one('users');
+  constructor($injector, __APP_NAME_PASCAL_CASED__Api, Users, Organisation, Site, SecurityGroup, Activities, Appointments, Sessions, ActivityTypes, Sites, Teams, ActivityAlerts, ActivityClients, ActivityNotes, ActivityStatuses, ActivityUploads, Audits, BriefContacts, ClientBankAccountAudits, ClientWarnings, Documents, Events, EventWorkers, FBAssessments, FBResponses, ImportFiles, PaymentBatches, PaymentRecoveries, PaymentRecoveryAudits, Payments, PaymentSchedules, PlanActionNotes, PlanActions, ProcessTaskTemplates, Rosters, SharedActivities, UDFValuesUsers, UserNotifications, UserPasswordAudits) {
+    let apiEndpoint = __APP_NAME_PASCAL_CASED__Api.one('users');
     let key = 'id';
     let collectionType = Users;
     
@@ -251,6 +251,6 @@ class UserFactory {
   }
 }
 
-UserFactory.$inject = ['$injector', 'CsnetApi', 'Users', 'Organisation', 'Site', 'SecurityGroup', 'Activities', 'Appointments', 'Sessions', 'ActivityTypes', 'Sites', 'Teams', 'ActivityAlerts', 'ActivityClients', 'ActivityNotes', 'ActivityStatuses', 'ActivityUploads', 'Audits', 'BriefContacts', 'ClientBankAccountAudits', 'ClientWarnings', 'Documents', 'Events', 'EventWorkers', 'FBAssessments', 'FBResponses', 'ImportFiles', 'PaymentBatches', 'PaymentRecoveries', 'PaymentRecoveryAudits', 'Payments', 'PaymentSchedules', 'PlanActionNotes', 'PlanActions', 'ProcessTaskTemplates', 'Rosters', 'SharedActivities', 'UDFValuesUsers', 'UserNotifications', 'UserPasswordAudits'];
+UserFactory.$inject = ['$injector', '__APP_NAME_PASCAL_CASED__Api', 'Users', 'Organisation', 'Site', 'SecurityGroup', 'Activities', 'Appointments', 'Sessions', 'ActivityTypes', 'Sites', 'Teams', 'ActivityAlerts', 'ActivityClients', 'ActivityNotes', 'ActivityStatuses', 'ActivityUploads', 'Audits', 'BriefContacts', 'ClientBankAccountAudits', 'ClientWarnings', 'Documents', 'Events', 'EventWorkers', 'FBAssessments', 'FBResponses', 'ImportFiles', 'PaymentBatches', 'PaymentRecoveries', 'PaymentRecoveryAudits', 'Payments', 'PaymentSchedules', 'PlanActionNotes', 'PlanActions', 'ProcessTaskTemplates', 'Rosters', 'SharedActivities', 'UDFValuesUsers', 'UserNotifications', 'UserPasswordAudits'];
 
 export default UserFactory;

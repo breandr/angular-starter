@@ -1,14 +1,14 @@
-import 'components/csnet/signedInUser/signedInUser-module';
+import 'components/__APP_NAME_CAMEL_CASED__/signedInUser/signedInUser-module';
 
 class AuthenticatedStateCtrl {
-  constructor($scope, $timeout, $q, $state, $mdSidenav, signedInUser, CsnetApi) {
+  constructor($scope, $timeout, $q, $state, $mdSidenav, signedInUser, __APP_NAME_PASCAL_CASED__Api) {
     this.$q = $q;
     this.$mdSidenav = $mdSidenav;
     this.$timeout = $timeout;
     this.$state = $state;
-    this.stateTitle = 'CSNet';
+    this.stateTitle = '__APP_TITLE__';
     this.signedInUser = signedInUser;
-    this.CsnetApi = CsnetApi;
+    this.__APP_NAME_PASCAL_CASED__Api = __APP_NAME_PASCAL_CASED__Api;
     
     this.user = signedInUser.data;
     
@@ -46,12 +46,12 @@ class AuthenticatedStateCtrl {
   onQuickSearchSelect($item, $model) {
     switch ($item.type) {
       case 'Activities':
-        this.$state.go('authenticated.csnet.core.activities.activity.activityOverview', {
+        this.$state.go('authenticated.__APP_NAME_CAMEL_CASED__.core.activities.activity.activityOverview', {
           activityId: $item.id
         });
         break;
       case 'Clients':
-        this.$state.go('authenticated.csnet.core.clients.client.clientOverview', {
+        this.$state.go('authenticated.__APP_NAME_CAMEL_CASED__.core.clients.client.clientOverview', {
           clientId: $item.id
         });
         break;
@@ -62,7 +62,7 @@ class AuthenticatedStateCtrl {
     if (!search) return;
 
     return this.$q.all([
-      this.CsnetApi.all('activities').all('quick-search').getList({
+      this.__APP_NAME_PASCAL_CASED__Api.all('activities').all('quick-search').getList({
         search
       }).then(response => {
         let activities = _.map(response.data, (searchResult, index) => {
@@ -74,7 +74,7 @@ class AuthenticatedStateCtrl {
         
         return activities;
       }),
-      this.CsnetApi.all('clients').all('quick-search').getList({
+      this.__APP_NAME_PASCAL_CASED__Api.all('clients').all('quick-search').getList({
         search
       }).then(response => {
         let clients = _.map(response.data, (searchResult, index) => {
@@ -98,6 +98,6 @@ class AuthenticatedStateCtrl {
   }
 }
 
-AuthenticatedStateCtrl.$inject = ['$scope', '$timeout', '$q', '$state', '$mdSidenav', 'signedInUser', 'CsnetApi'];
+AuthenticatedStateCtrl.$inject = ['$scope', '$timeout', '$q', '$state', '$mdSidenav', 'signedInUser', '__APP_NAME_PASCAL_CASED__Api'];
 
 export default AuthenticatedStateCtrl;

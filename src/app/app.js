@@ -2,22 +2,18 @@
 import 'states/states';
 import 'templates';
 
-class CsnetApp {
+class __APP_NAME_PASCAL_CASED__App {
   constructor() {
-    angular.module('csnetApp', [
+    angular.module('myApp', [
       'restangular',
       'ngTable',
-      'angular-loading-bar',
       'ngAnimate',
-      // 'ui.highlight',
-      'ui.bootstrap',
-      // 'ui.select',
       'LocalStorageModule',
       'angulartics',
       'angulartics.google.analytics',
       'pascalprecht.translate',
-      'csnetApp.states',
-      'csnetApp.templates'
+      'myApp.states',
+      'myApp.templates'
     ])
       .constant('ACTIVITY_COMMENCEMENT_DATE_MAX_DAYS_AHEAD', 3)
       .constant('datepickerPopupConfig', {
@@ -40,7 +36,7 @@ class CsnetApp {
       .config(($urlRouterProvider, $locationProvider, $analyticsProvider, $sceDelegateProvider, $translateProvider, localStorageServiceProvider, cfpLoadingBarProvider, uiSelectConfig) => {
         $sceDelegateProvider.resourceUrlWhitelist([
           'self',
-          'https://api.csnet.net.au/**',
+          'https://api.__APP_NAME_CAMEL_CASED__.net.au/**',
           'http://localhost:91/**'
         ]);
         uiSelectConfig.refreshDelay = 500;
@@ -63,7 +59,7 @@ class CsnetApp {
         // cfpLoadingBarProvider.spinnerTemplate = '<md-circular-progress id="loading-bar-spinner" md-mode="indeterminate"></md-circular-progress>';
         $analyticsProvider.virtualPageviews(false);
         // localStorageServiceProvider configuration
-        localStorageServiceProvider.setPrefix('csnet');
+        localStorageServiceProvider.setPrefix('__APP_NAME_CAMEL_CASED__');
         // localStorageServiceProvider.setStorageType('sessionStorage');
 
         // $urlRouteProvider configuration
@@ -152,4 +148,4 @@ class CsnetApp {
   }
 }
 
-export default CsnetApp;
+export default __APP_NAME_PASCAL_CASED__App;

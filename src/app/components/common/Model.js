@@ -1,11 +1,11 @@
 class Model{
-  constructor(CsnetApi, List, data, key, apiEndpoint, collectionType) {
+  constructor(__APP_NAME_PASCAL_CASED__Api, List, data, key, apiEndpoint, collectionType) {
     this.List = List;
-    this.getFromCacheOrLoad = CsnetApi.getFromCacheOrLoad;
+    this.getFromCacheOrLoad = __APP_NAME_PASCAL_CASED__Api.getFromCacheOrLoad;
     this.selectOptions = collectionType ? new collectionType() : null;
     this.listItems = {};
     this.data = _.isObject(data) ? data : _.isNumber(data) ? {[key]: data} : {};
-    this.apiEndpoint = _.isUndefined(this.data[key]) ? CsnetApi.all(apiEndpoint.route) : CsnetApi.one(apiEndpoint.route, this.data[key]);
+    this.apiEndpoint = _.isUndefined(this.data[key]) ? __APP_NAME_PASCAL_CASED__Api.all(apiEndpoint.route) : __APP_NAME_PASCAL_CASED__Api.one(apiEndpoint.route, this.data[key]);
   }
   
   get() {
@@ -41,6 +41,6 @@ class Model{
   }
 }
 
-Model.$inject = ['CsnetApi', 'List', 'data', 'key', 'apiEndpoint', 'collectionType'];
+Model.$inject = ['__APP_NAME_PASCAL_CASED__Api', 'List', 'data', 'key', 'apiEndpoint', 'collectionType'];
 
 export default Model;

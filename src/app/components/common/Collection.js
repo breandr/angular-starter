@@ -1,8 +1,8 @@
 class Collection{
-  constructor($injector, CsnetApi, collectionOf, apiRoute, apiEndpoint){
+  constructor($injector, __APP_NAME_PASCAL_CASED__Api, collectionOf, apiRoute, apiEndpoint){
     this.CollectionOf = $injector.get(collectionOf);
     this.apiRoute = apiRoute;
-    this.apiEndpoint = apiEndpoint ? apiEndpoint.all(this.apiRoute) : CsnetApi.all(this.apiRoute);
+    this.apiEndpoint = apiEndpoint ? apiEndpoint.all(this.apiRoute) : __APP_NAME_PASCAL_CASED__Api.all(this.apiRoute);
     this.data = null;
   }
   
@@ -46,6 +46,6 @@ class Collection{
   }
 }
 
-Collection.$inject = ['$injector', 'CsnetApi', 'collectionOf', 'apiRoute', 'apiEndpoint'];
+Collection.$inject = ['$injector', '__APP_NAME_PASCAL_CASED__Api', 'collectionOf', 'apiRoute', 'apiEndpoint'];
 
 export default Collection;

@@ -4,11 +4,11 @@ import './pageNotFound/pageNotFound';
 import AnonymousStateCtrl from './anonymousState-controller';
 
 try {
-  angular.module('csnetApp.states.anonymous');
+  angular.module('myApp.states.anonymous');
 } catch (e) {
-  angular.module('csnetApp.states.anonymous', [
-    'csnetApp.states.anonymous.pageNotFound',
-    'csnetApp.states.anonymous.signIn'
+  angular.module('myApp.states.anonymous', [
+    'myApp.states.anonymous.pageNotFound',
+    'myApp.states.anonymous.signIn'
   ])
     .config(function ($stateProvider) {
       $stateProvider

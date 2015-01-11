@@ -11,9 +11,9 @@ scripts/chromedriver
 .idea/
 .nuget/
 obj
-csnet-client.csproj
-csnet-client.csproj.user
-csnet-client.sln
-csnet-client.suo
-csnet-client.v12.suo
+angular-starter.csproj
+angular-starter.csproj.user
+angular-starter.sln
+angular-starter.suo
+angular-starter.v12.suo
 **/Thumbs.db

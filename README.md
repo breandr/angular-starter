@@ -1,11 +1,11 @@
-Client-side source for CSnet
+__APP_TITLE__ Client
 -----------------------------
 
 Installation instructions:
 --------------------------
 ```
-git clone https://github.com/CommunityServices/csnet-client.git
-cd csnet-client
+git clone https://github.com/breandr/angular-starter.git
+cd angular-starter
 npm install
 bower install
 gulp

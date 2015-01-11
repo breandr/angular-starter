@@ -2,7 +2,7 @@ var path = require('path');
 
 module.exports = function(srcRoot, debugRoot, releaseRoot, pgDebugRoot, pgReleaseRoot, isWin, isLinux, isMac) {
   return {
-    moduleName: 'csnetApp',
+    moduleName: '__APP_NAME_CAMEL_CASED__',
     debugBuildPort: 3000,
     releaseBuildPort: 3001,
     paths: {
@@ -233,13 +233,6 @@ module.exports = function(srcRoot, debugRoot, releaseRoot, pgDebugRoot, pgReleas
 
       // Enable or disable colors in the output (reporters and logs).
       colors: true
-    },
-
-    banner: '/*!\n' +
-      ' * CSnet Master, v<%= pkg.version %>\n' +
-      ' * http://givit.com.au/\n' +
-      ' *\n' +
-      ' * By @breandr\n' +
-      ' */\n\n'
+    }
   };
 };

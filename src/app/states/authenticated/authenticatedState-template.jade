@@ -3,9 +3,9 @@
     .md-toolbar-tools
       md-button.nav-drawer-toggle(hide-gt-md, ng-click="authenticatedStateCtrl.toggleSideNav($event)", aria-label="Toggle Menu")
         i.fa.fa-bars.fa-lg
-      a.logo(ui-sref="authenticated.csnet.core.dashboard.viewDashboard")
-        img(src="img/csnet-logo-square-sm.png")
-        h3 CSnet
+      a.logo(ui-sref="authenticated.__APP_NAME_CAMEL_CASED__.core.dashboard.viewDashboard")
+        img(src="img/__APP_NAME_CAMEL_CASED__-logo-square-sm.png")
+        h3 __APP_NAME_PASCAL_CASED__
           
       h2 {{authenticatedStateCtrl.organisationName}}
       #appBarActionButtons.md-toolbar-tools(flex, layout="row", layout-align="end")
@@ -16,7 +16,7 @@
               ui-select-choices(group-by="'type'", repeat='searchResult in authenticatedStateCtrl.quickSearchResults | filter: $select.search', refresh='authenticatedStateCtrl.quickSearch($select.search)')
                 div(ng-switch="searchResult.type")
                   div(ng-switch-when="Activities")
-                    md-button.activity.search-result(layout="row", ui-sref="authenticated.csnet.core.activities.activity.activityOverview({activityId: searchResult.id})")
+                    md-button.activity.search-result(layout="row", ui-sref="authenticated.__APP_NAME_CAMEL_CASED__.core.activities.activity.activityOverview({activityId: searchResult.id})")
                       .activity-master-type.fa.fa-3x(class="authenticatedStateCtrl.getActivityMasterTypeIcon(searchResult.activityMasterType)")
                       div(flex, layout="column")
                         div(layout="row")
@@ -26,7 +26,7 @@
                           .activity-commencement-date(flex) {{searchResult.commencementDate}}
                           .activity-type {{searchResult.activityType}}
                   div(ng-switch-when="Clients")
-                    md-button.client.search-result(layout="row", ui-sref="authenticated.csnet.core.activities.activity.activityOverview({activityId: searchResult.familyId})")
+                    md-button.client.search-result(layout="row", ui-sref="authenticated.__APP_NAME_CAMEL_CASED__.core.activities.activity.activityOverview({activityId: searchResult.familyId})")
                       .activity-master-type.fa.fa-3x(class="authenticatedStateCtrl.getActivityMasterTypeIcon(searchResult.activityMasterType)")
                       div(flex, layout="column")
                         div(layout="row")
@@ -87,7 +87,7 @@
                   a(href='#' flex) Stan Lee
                   span Just now
                   
-                p Just invented CSnet Man!
+                p foo
                 
               div
                 h6(layout="row")
@@ -178,11 +178,11 @@
         
           .dropdown-menu
             section(layout="column")
-              md-button(ui-sref-active="state-active", ui-sref="authenticated.csnet.core.my.myProfile")
+              md-button(ui-sref-active="state-active", ui-sref="authenticated.__APP_NAME_CAMEL_CASED__.core.my.myProfile")
                 i.fa.fa-user &nbsp;
                 span My Profile
               
-              md-button(ui-sref-active="state-active", ui-sref="authenticated.csnet.core.my.myAppointments.myAppointmentsList")
+              md-button(ui-sref-active="state-active", ui-sref="authenticated.__APP_NAME_CAMEL_CASED__.core.my.myAppointments.myAppointmentsList")
                 i.fa.fa-calendar-o &nbsp;
                 span My Appointments
               

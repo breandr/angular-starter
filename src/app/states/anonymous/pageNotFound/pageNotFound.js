@@ -1,12 +1,12 @@
 //import angular from 'angular';
-// import 'components/csnet/languages/languages';
+// import 'components/__APP_NAME_CAMEL_CASED__/languages/languages';
 import PageNotFoundStateCtrl from './pageNotFoundState-controller';
 
 try {
-  angular.module('csnetApp.states.anonymous.pageNotFound');
+  angular.module('myApp.states.anonymous.pageNotFound');
 } catch (e) {
-  angular.module('csnetApp.states.anonymous.pageNotFound', [
-    // 'csnet.languages'
+  angular.module('myApp.states.anonymous.pageNotFound', [
+    // '__APP_NAME_CAMEL_CASED__.languages'
   ])
     .constant('pathToPageNotFoundState', 'states/anonymous/pageNotFound')
     .controller('PageNotFoundStateCtrl', PageNotFoundStateCtrl)

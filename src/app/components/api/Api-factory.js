@@ -1,4 +1,4 @@
-class CsnetApiFactory{
+class __APP_NAME_PASCAL_CASED__ApiFactory{
   constructor($mdToast, Restangular, localStorageService, API_SERVER){
     var restAngular = Restangular.withConfig(function (Configurer) {
       Configurer.setBaseUrl(API_SERVER);
@@ -118,6 +118,6 @@ class CsnetApiFactory{
   }
 }
 
-CsnetApiFactory.$inject = ['$mdToast', 'Restangular', 'localStorageService', 'API_SERVER'];
+__APP_NAME_PASCAL_CASED__ApiFactory.$inject = ['$mdToast', 'Restangular', 'localStorageService', 'API_SERVER'];
 
-export default CsnetApiFactory;
+export default __APP_NAME_PASCAL_CASED__ApiFactory;

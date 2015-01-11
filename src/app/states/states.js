@@ -3,11 +3,11 @@ import './anonymous/anonymous';
 import './authenticated/authenticatedState-module';
 
 try {
-  angular.module('csnetApp.states');
+  angular.module('myApp.states');
 } catch (e) {
-  angular.module('csnetApp.states', [
+  angular.module('myApp.states', [
     'ui.router',
-    'csnetApp.states.anonymous',
-    'csnetApp.states.authenticated'
+    'myApp.states.anonymous',
+    'myApp.states.authenticated'
   ]);
 }

@@ -1,4 +1,4 @@
-import 'components/csnet/signedInUser/signedInUser-module';
+import 'components/__APP_NAME_CAMEL_CASED__/signedInUser/signedInUser-module';
 
 function signInStateCtrl ($state, signedInUser) {
   // Redirect to dashboard if already authenticated
