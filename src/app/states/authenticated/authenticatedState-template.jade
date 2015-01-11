@@ -1,0 +1,204 @@
+#authenticatedState(layout="column", flex)
+  md-toolbar.md-bg-color-primary#appBar(layout="row")
+    .md-toolbar-tools
+      md-button.nav-drawer-toggle(hide-gt-md, ng-click="authenticatedStateCtrl.toggleSideNav($event)", aria-label="Toggle Menu")
+        i.fa.fa-bars.fa-lg
+      a.logo(ui-sref="authenticated.csnet.core.dashboard.viewDashboard")
+        img(src="img/csnet-logo-square-sm.png")
+        h3 CSnet
+          
+      h2 {{authenticatedStateCtrl.organisationName}}
+      #appBarActionButtons.md-toolbar-tools(flex, layout="row", layout-align="end")
+        #appBarQuickSearch(layout)
+          .input-addon.action-button
+            ui-select.input-addon-field(name='quickSearch', ng-model='authenticatedStateCtrl.quickSearch.selected', on-select="authenticatedStateCtrl.onQuickSearchSelect($item, $model)")
+              ui-select-match(placeholder='Search...') {{$select.selected.name}}
+              ui-select-choices(group-by="'type'", repeat='searchResult in authenticatedStateCtrl.quickSearchResults | filter: $select.search', refresh='authenticatedStateCtrl.quickSearch($select.search)')
+                div(ng-switch="searchResult.type")
+                  div(ng-switch-when="Activities")
+                    md-button.activity.search-result(layout="row", ui-sref="authenticated.csnet.core.activities.activity.activityOverview({activityId: searchResult.id})")
+                      .activity-master-type.fa.fa-3x(class="authenticatedStateCtrl.getActivityMasterTypeIcon(searchResult.activityMasterType)")
+                      div(flex, layout="column")
+                        div(layout="row")
+                          .activity-identifier(ng-bind-html='searchResult.name | highlight: $select.search', flex)
+                          .activity-status(class="{{getActivityStatusContextualClass(searchResult.status)}}") {{authenticatedStateCtrl.getActivityStatus(searchResult.status)}}
+                        div(layout="row")
+                          .activity-commencement-date(flex) {{searchResult.commencementDate}}
+                          .activity-type {{searchResult.activityType}}
+                  div(ng-switch-when="Clients")
+                    md-button.client.search-result(layout="row", ui-sref="authenticated.csnet.core.activities.activity.activityOverview({activityId: searchResult.familyId})")
+                      .activity-master-type.fa.fa-3x(class="authenticatedStateCtrl.getActivityMasterTypeIcon(searchResult.activityMasterType)")
+                      div(flex, layout="column")
+                        div(layout="row")
+                          .client-name(ng-bind-html='searchResult.name | highlight: $select.search', flex)
+                          .client-sm(class="{{getActivityStatusContextualClass(searchResult.status)}}") {{authenticatedStateCtrl.getActivityStatus(searchResult.status)}}
+                        div
+                        .client-address {{searchResult.address}}
+            
+            md-button.input-addon-item(ng-click="authenticatedStateCtrl.showQuickSearchField($event)")
+              i.fa.fa-lg.fa-search &nbsp;
+              //span(hide, inline-block-md) Quick-Search
+                
+        #myAlertsActionButton.action-button(dropdown)
+          md-button.dropdown-toggle(layout="row")
+            i.fa.fa-lg.fa-bell-o
+        
+          .dropdown-menu
+            section(layout="column")
+              div
+                h3 Current alerts
+                
+              div
+                h6
+                  a(href='#') Homer SIMPSON
+                p
+                  i.fa.fa-warning.text-danger
+                  |  Warning about Homer.
+                  
+              div
+                h6
+                  a(href='#') Bart SIMPSON
+                p
+                  i.fa.fa-warning.text-warning
+                  |  Warning about Bart.
+                  
+              div
+                h6
+                  a(href='#') Maggie SIMPSON
+                p
+                  i.fa.fa-warning.text-info
+                  |  Warning about Maggie.
+              
+              md-button.button-alt See all alerts
+
+          span.badge.badge-default 7
+              
+        #myNotificationsActionButton.action-button(dropdown)
+          md-button.dropdown-toggle(layout="row")
+            i.fa.fa-lg.fa-envelope-o
+        
+          .dropdown-menu
+            section(layout="column")
+              div
+                h3 Notifications
+                
+              div
+                h6(layout="row")
+                  a(href='#' flex) Stan Lee
+                  span Just now
+                  
+                p Just invented CSnet Man!
+                
+              div
+                h6(layout="row")
+                  a(href='#' flex) Matt Groening
+                  span 2 mins ago
+                  
+                p Nickelodean bought another three series.
+                
+              div
+                h6(layout="row")
+                  a(href='#' flex) William Hanna
+                  span 1hr ago
+                  
+                p Do you ever read your notifications?
+                
+              div
+                h6(layout="row")
+                  a(href='#' flex) Joseph Barbera
+                  span Yesterday
+                  
+                p Something exciting happened yesterday.
+                
+              md-button.button-alt See all notifications
+          
+          span.badge.badge-default 7
+              
+        #myAppointmentsActionButton.action-button(dropdown)
+          md-button.dropdown-toggle(layout="row")
+            i.fa.fa-lg.fa-calendar
+        
+          .dropdown-menu
+            section(layout="column")
+              div
+                h3 Today's appointments
+                
+              div
+                h6(layout="row")
+                  a(href='#' flex) Homer Simpson
+                  span 9am / 1hr
+                  
+                p Meet with Homer to discuss donuts.
+                
+              div
+                h6(layout="row")
+                  a(href='#' flex) Homer Simpson
+                  span 10am / 1hr
+                  
+                p Meet with Homer to discuss weight loss.
+                
+              md-button.create-booking-button.button-alt(layout="row")
+                span.pull-left 11am / 2hr Free
+                span.pull-right
+                  i.fa.fa-plus-circle
+                  | Booking
+              div
+                h6(layout="row")
+                  a(href='#' flex) Fred Flintstone
+                  span 1pm / 30m
+                  
+                p Discuss what not to do to Wilma with a club.
+              
+              md-button.create-booking-button.button-alt(layout="row")
+                span.pull-left 1.30pm / 30m
+                span.pull-right
+                  i.fa.fa-plus-circle
+                  | Booking
+                  
+              div
+                h6(layout="row")
+                  a(href='#' flex) Wilma Flintstone
+                  span 2pm / 1hr
+                  
+                p Talk about baby hygiene.
+              
+              md-button.create-booking-button.button-alt(layout="row")
+                span.pull-left 3pm / 2hr Free
+                span.pull-right
+                  i.fa.fa-plus-circle
+                  | Booking
+
+          span.badge.badge-default 7
+              
+        #userProfileActionButton.action-button(dropdown)
+          md-button.dropdown-toggle(layout="row")
+            img.user-avatar.img-circle(alt, src="/img/users/1/avatar.jpg")
+            span.user-name(hide, inline-block-md, flex) &nbsp; {{authenticatedStateCtrl.user.firstName}} {{authenticatedStateCtrl.user.lastName}} &nbsp;
+            i.fa.fa-angle-down.fa-lg(hide, inline-block-md)
+        
+          .dropdown-menu
+            section(layout="column")
+              md-button(ui-sref-active="state-active", ui-sref="authenticated.csnet.core.my.myProfile")
+                i.fa.fa-user &nbsp;
+                span My Profile
+              
+              md-button(ui-sref-active="state-active", ui-sref="authenticated.csnet.core.my.myAppointments.myAppointmentsList")
+                i.fa.fa-calendar-o &nbsp;
+                span My Appointments
+              
+              md-divider
+                
+              md-button(ng-click="authenticatedStateCtrl.lockScreen()")
+                i.fa.fa-lock &nbsp;
+                span Lock Screen
+                
+              md-button(ng-click="authenticatedStateCtrl.signOut()")
+                i.fa.fa-power-off &nbsp;
+                span Sign Out
+                
+        div(ui-view="appBarActionButtons", layout)
+  section#contentArea(layout="row" flex)
+    md-sidenav.md-sidenav-left.md-whiteframe-z2#sideNav(md-component-id="sideNav", layout="column", md-is-locked-open="true")
+      div(layout="column", flex, layout-align="start", ui-view="sideNav")
+          
+    section(ui-view, layout="row", flex)

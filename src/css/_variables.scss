@@ -1,0 +1,45 @@
+$transparent-bg-color: black;
+$transparent-text-color: white;
+$transparent-most-alpha: rgba(red($transparent-bg-color), green($transparent-bg-color), blue($transparent-bg-color), 0.25);
+$transparent-more-alpha: rgba(red($transparent-bg-color), green($transparent-bg-color), blue($transparent-bg-color), 0.2);
+$transparent: rgba(red($transparent-bg-color), green($transparent-bg-color), blue($transparent-bg-color), 0.15);
+$transparent-less-alpha: rgba(red($transparent-bg-color), green($transparent-bg-color), blue($transparent-bg-color), 0.1);
+$transparent-least-alpha: rgba(red($transparent-bg-color), green($transparent-bg-color), blue($transparent-bg-color), 0.05);
+
+$z-index-elements:
+  navbar,
+  input-group-form-control,
+  md-fab,
+  md-sidenav,
+  md-backdrop,
+  md-dialog-container,
+  dropdown,
+  navbar-fixed,
+  side-panel,
+  modal-background,
+  modal,
+  popover,
+  tooltip,
+  loading-indicator;
+
+$overlay-bg-color: #2f3645;
+$overlay-text-color: white;
+
+$panel-header-button-background: transparent;
+$panel-header-button-background-hover: $transparent-less-alpha;
+$panel-header-button-border-left: 1px solid $transparent-most-alpha;
+
+/*
+$transparent-bg-color: white;
+$transparent-text-color: white;
+$transparent-most-alpha: rgba(red($transparent-bg-color), green($transparent-bg-color), blue($transparent-bg-color), 0.25);
+$transparent-more-alpha: rgba(red($transparent-bg-color), green($transparent-bg-color), blue($transparent-bg-color), 0.2);
+$transparent: rgba(red($transparent-bg-color), green($transparent-bg-color), blue($transparent-bg-color), 0.15);
+$transparent-less-alpha: rgba(red($transparent-bg-color), green($transparent-bg-color), blue($transparent-bg-color), 0.1);
+$transparent-least-alpha: rgba(red($transparent-bg-color), green($transparent-bg-color), blue($transparent-bg-color), 0.05);
+
+$z-index-elements: navbar, dropdown, navbar-fixed, side-panel, modal-background, modal, popover, tooltip;
+
+$overlay-bg-color: rgba(red($transparent-bg-color), green($transparent-bg-color), blue($transparent-bg-color), 0.8);
+$overlay-text-color: black;
+ */

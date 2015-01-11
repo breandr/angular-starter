@@ -1,0 +1,137 @@
+@import "_variables-bootstrap.scss";
+@import "material/_variables-base";
+@import "_mixins.scss";
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Open_Sans/OpenSans-Regular.ttf");
+}
+
+body{
+  // font-family: 'Open Sans' !important;
+}
+
+table{
+  width: 100%;
+  border: 1px solid #eee;
+}
+tr{
+  border-top: 1px solid #ddd;
+}
+
+[ng-table-pagination]{
+  margin: 8px 0;
+}
+
+.ng-table-pagination{
+  margin: 0;
+}
+
+.info-group{}
+
+.info-label{
+  display: inline;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.info-value{
+  display: inline-block;
+}
+
+body {
+  background-color: #FFF;
+}
+
+.form-row{
+  box-pack: justify;
+  justify-content: space-between;
+  display: flex;
+}
+
+.form-group{
+  padding-left: 15px;
+  padding-right: 15px;
+  flex: 1;
+}
+
+.ui-select-bootstrap > .ui-select-match{
+  border-width: 0 0 1px 0;
+}
+
+.ngn {
+  bottom: 0;
+}
+
+.table-scrollable {
+  table {
+    display: block;
+    overflow: auto;
+  }
+}
+
+.content-area {
+  padding-top: 65px;
+  padding-bottom: 15px;
+}
+
+.radio, .checkbox {
+  border-radius: 4px;
+}
+
+.switch {
+  border: 1px solid #CCC;
+  border-radius: $border-radius-base;
+  + label {
+    vertical-align: super;
+    font-weight: normal;
+  }
+  .switch-left {
+    background-color: $brand-primary;
+  }
+}
+
+.modal-header .close {
+  margin-top: -10px;
+}
+
+.give-item-confirmation-modal .modal-dialog {
+  max-width: 465px;
+}
+
+.panel-body p {
+  margin-left: 15px;
+}
+
+legend {
+  padding-left: 15px;
+}
+form p {
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 15px;
+}
+
+.input-addon{
+  display: flex;
+}
+.input-addon-field{
+  flex: 1;
+}
+
+/* this shrinks the calendar to a decent size */
+.dropdown-menu td, .dropdown-menu th {
+  padding:0;
+}
+/* this prevents the placeholder text from being cut off in multi select inputs*/
+.ui-select-multiple.ui-select-bootstrap input.ui-select-search {
+  line-height: 1em;
+}
+
+/* common flex styles for material directives */
+.grow-to-fill {
+  flex: auto;
+  width:400px;
+}

@@ -1,0 +1,11 @@
+.dropdown-checklist(dropdown)
+  md-button.dropdown-toggle(layout="row")
+    span {{dropdownChecklistCtrl.label}}:&nbsp;
+    span.selected-items {{dropdownChecklistCtrl.getSelected()}}&nbsp;
+    i.fa.fa-angle-down.fa-lg
+  .dropdown-menu(ng-click="$event.stopPropagation()")
+    ul
+      li
+        md-checkbox(ng-click="dropdownChecklistCtrl.selected = []", ng-checked="dropdownChecklistCtrl.selected.length === 0") All
+      li(ng-repeat="item in dropdownChecklistCtrl.items")
+        md-checkbox(checklist-model="dropdownChecklistCtrl.selected", checklist-value="item") {{item[dropdownChecklistCtrl.itemLabelProp]}}

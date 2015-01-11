@@ -1,0 +1,7 @@
+// @import "_variables-bootstrap.scss";
+
+@mixin transparent {
+  background-color: rgba(255, 255, 255, 0.25);
+  //$transparent;
+  // background-color: rgba(0, 0, 0, 0.25);
+}

@@ -1,0 +1,136 @@
+@import "_mixins.scss";
+@import "_variables.scss";
+
+$icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+//
+// Colors
+/* $brand-primary: #5569ad;
+$brand-success: #72a03f;
+$brand-info: #385419;
+$brand-warning: #6d3120; */
+$brand-danger: #ed7351;
+$gray-darker: lighten(black, 10%);
+$gray-dark: lighten(black, 25%);
+$gray: lighten(black, 33.5%);
+$gray-light: lighten(black, 75%);
+$gray-lighter: lighten(black, 90%);
+//
+// // Scaffolding
+// //$body-bg: #eeeeee;
+// $text-color: $transparent-text-color;
+//
+// // $link-color: white;
+//
+// //Typography
+// // $font-size-base: 16px;
+// $font-family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+// $font-family-base: $font-family-sans-serif;
+// $heading-line-height: "inherit";
+//
+// // Components
+$border-radius-base: 0;
+$border-radius-large: 0;
+$border-radius-small: 0;
+//
+// // Forms
+// $input-bg: $transparent;
+// $input-bg-disabled: $transparent-less-alpha;
+// $input-color: $text-color;
+ $input-border: $gray-lighter;
+// $input-border-focus: $transparent-bg-color;
+// $input-color-placeholder: $gray-light;
+//
+// // Navbar
+// $navbar-height: 40px;
+// $navbar-default-bg: rgba(0, 0, 0, 0);
+//
+// // $transparent;
+// $navbar-default-border: 0;
+// $navbar-default-color: $transparent-text-color;
+// $navbar-default-link-color: $transparent-text-color;
+// $navbar-default-brand-color: $transparent-text-color;
+//
+// // $navbar-default-link-color: #FFF;
+// $navbar-default-toggle-icon-bar-bg: $transparent-text-color;
+//
+// // Tables
+// $table-bg: rgba(0, 0, 0, 0);
+// $table-bg-accent: $transparent-least-alpha;
+// $table-bg-hover: $transparent-less-alpha;
+// $table-bg-active: $table-bg-hover;
+// $table-border-color: none;
+//
+// // Panels
+// $panel-bg: transparent;
+//
+// // $transparent;
+// $panel-body-padding: 0;
+// $panel-default-text: $text-color;
+// $panel-default-heading-bg: transparent;
+// $panel-footer-bg: none;
+// $panel-default-border: 0;
+// $panel-inner-border: $transparent-bg-color;
+// $panel-heading-padding: 0;
+//
+// // Pagination
+// $pagination-color: $text-color;
+// $pagination-hover-color: $text-color;
+// $pagination-bg: none;
+// $pagination-border: $transparent-most-alpha;
+// $pagination-hover-bg: $transparent;
+// $pagination-hover-border: $transparent-most-alpha;
+// $pagination-active-color: $text-color;
+// $pagination-active-color: $text-color;
+// $pagination-active-bg: $transparent;
+// $pagination-active-border: $transparent-most-alpha;
+// $pagination-disabled-color: $text-color;
+// $pagination-disabled-bg: none;
+// $pagination-disabled-border: $transparent-most-alpha;
+//
+// // Modal
+// $modal-content-bg: $overlay-bg-color;
+//
+// // Form states and alerts
+// // $state-success-text
+// // $state-success-bg
+// // $state-success-border
+// // $state-info-text
+// // $state-info-bg
+// // $state-info-border
+// // $state-warning-text
+// // $state-warning-bg
+// // $state-warning-border
+// // $state-danger-text: white;
+// $state-danger-bg: rgba(red($brand-danger), green($brand-danger), blue($brand-danger), 0.8);
+//
+// // $state-danger-border
+//
+// // Dropdown
+// // $dropdown-bg: $transparent;
+//
+// // Popoover
+// // $popover-bg: $transparent;
+//
+@import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_variables.scss";
+//
+// // $btn-default-color: rgba($btn-default-color, $transparent);
+// $btn-alpha: 0.25;
+//
+// $btn-default-color: $transparent-text-color;
+// $btn-default-bg: rgba($btn-default-bg, $btn-alpha);
+// $btn-default-border: rgba($btn-default-border, $btn-alpha);
+//
+// // $btn-primary-bg: rgba($btn-primary-bg, $btn-alpha);
+// // $btn-primary-border: rgba($btn-primary-border, $btn-alpha);
+//
+// // $btn-success-bg: rgba($btn-success-bg, $btn-alpha);
+// // $btn-success-border: rgba($btn-success-border, $btn-alpha);
+//
+// // $btn-info-bg: rgba($btn-info-bg, $btn-alpha);
+// // $btn-info-border: rgba($btn-info-border, $btn-alpha);
+//
+// // $btn-warning-bg: rgba($btn-warning-bg, $btn-alpha);
+// // $btn-warning-border: rgba($btn-warning-border, $btn-alpha);
+//
+// // $btn-danger-bg: rgba($btn-danger-bg, $btn-alpha);
+// // $btn-danger-border: rgba($btn-danger-border, $btn-alpha);

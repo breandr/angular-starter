@@ -1,0 +1,113 @@
+/*!
+ * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+/* Toggle Styles */
+
+#simpleSidebarWrapper {
+  transition: all 0.5s ease;
+}
+
+#simpleSidebarWrapper.simple-sidebar-has-left {
+  padding-left: 0;
+}
+
+#simpleSidebarWrapper.simple-sidebar-has-right {
+  padding-right: 0;
+}
+
+#simpleSidebarWrapper.simple-sidebar-collapsed-left {
+  padding-left: 250px;
+  padding-right: 0;
+}
+
+#simpleSidebarWrapper.simple-sidebar-collapsed-right {
+  padding-right: 250px;
+  padding-left: 0;
+}
+
+.simple-sidebar {
+  z-index: 1000;
+  position: fixed;
+  width: 0;
+  height: 100%;
+  overflow-y: auto;
+  // background: #000;
+  transition: all 0.5s ease;
+}
+
+.simple-sidebar-left {
+  margin-left: -250px;
+  left: 250px;
+}
+
+.simple-sidebar-right {
+  margin-right: -250px;
+  right: 250px;
+}
+
+#simpleSidebarWrapper.simple-sidebar-collapsed .simple-sidebar {
+  width: 250px;
+}
+
+#simpleSidebarContentWrapper {
+  width: 100%;
+  padding: 15px;
+}
+
+#simpleSidebarWrapper.simple-sidebar-collapsed #simpleSidebarContentWrapper {
+  position: absolute;
+}
+
+#simpleSidebarWrapper.simple-sidebar-collapsed-left #simpleSidebarContentWrapper {
+  margin-right: -250px;
+}
+
+#simpleSidebarWrapper.simple-sidebar-collapsed-right #simpleSidebarContentWrapper {
+  margin-left: -250px;
+}
+
+/* Sidebar Styles */
+
+// .sidebar-nav {
+//   position: absolute;
+//   top: 0;
+//   width: 250px;
+//   margin: 0;
+//   padding: 0;
+// }
+
+@media (min-width: 768px) {
+  #simpleSidebarWrapper.simple-sidebar-has-left {
+    padding-left: 250px;
+  }
+  #simpleSidebarWrapper.simple-sidebar-has-right {
+    padding-right: 250px;
+  }
+  #simpleSidebarWrapper.simple-sidebar-collapsed-left {
+    padding-left: 0;
+  }
+  #simpleSidebarWrapper.simple-sidebar-collapsed-right {
+    padding-right: 0;
+  }
+  .simple-sidebar {
+    width: 250px;
+  }
+  #simpleSidebarWrapper.simple-sidebar-collapsed .simple-sidebar {
+    width: 0;
+  }
+  #simpleSidebarContentWrapper {
+    padding: 20px;
+  }
+  #simpleSidebarWrapper.simple-sidebar-collapsed #simpleSidebarContentWrapper {
+    position: relative;
+  }
+  #simpleSidebarWrapper.simple-sidebar-collapsed-left #simpleSidebarContentWrapper {
+    margin-right: 0;
+  }
+  #simpleSidebarWrapper.simple-sidebar-collapsed-right #simpleSidebarContentWrapper {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,61 @@
+#coreStateSideNav(layout="column" flex)
+  md-button(ui-sref-active="state-active", ui-sref="authenticated.csnet.core.activities.activitiesList")
+    i.fa.fa-lg.fa-folder-open-o
+    span.button-text Activities
+
+  md-button(ui-sref-active="state-active", ui-sref="authenticated.csnet.core.reports.reportsList")
+    i.fa.fa-lg.fa-file-text-o
+    span.button-text Reports
+
+  md-button.sub-menu-container(ng-click="coreStateSideNavCtrl.isAdminNavCollapsed = !coreStateSideNavCtrl.isAdminNavCollapsed")
+    div(layout="row")
+      i.fa.fa-lg.fa-cog
+      span.button-text(flex) Administration
+      i.fa.fa-angle-down.fa-lg
+    
+    .administration-nav.sub-menu(collapse="coreStateSideNavCtrl.isAdminNavCollapsed")
+      div(layout="column")
+        md-button.sub-menu-item(ui-sref-active="state-active", ui-sref="authenticated.csnet.core.admin.briefContacts.briefContactsList") Brief Contacts
+        
+        md-button.sub-menu-item(ui-sref-active="state-active", ui-sref="authenticated.csnet.core.admin.payments.paymentsList") Payments
+      
+        md-button.sub-menu-item(ui-sref-active="state-active", ui-sref="authenticated.csnet.core.admin.quickOps.quickOpsList") Quick Ops
+          
+        md-button.sub-menu-item(ui-sref-active="state-active", ui-sref="authenticated.csnet.core.admin.housing.housingList") Housing
+          
+        md-button.sub-menu-item(ui-sref-active="state-active", ui-sref="authenticated.csnet.core.admin.activityUpload") Activity Upload
+          
+        md-button.sub-menu-item(ui-sref-active="state-active", ui-sref="authenticated.csnet.core.admin.people.peopleList") People
+          
+        md-button.sub-menu-item(ui-sref-active="state-active", ui-sref="authenticated.csnet.core.admin.unusedClients.unusedClientsList") Unused Clients
+          
+        md-button.sub-menu-item(ui-sref-active="state-active", ui-sref="authenticated.csnet.core.admin.mergeClients") Merge Clients
+        
+        //.sub-menu-item(layout="row")
+          md-button(ui-sref-active="state-active", ui-sref="authenticated.csnet.core.admin.briefContacts.briefContactsList", layout="row", flex) Brief Contacts
+          md-button(ng-click="coreStateSideNavCtrl.showBriefContactUpsertModal($event)", layout="row")
+            i.fa.fa-plus.fa-lg
+        
+      md-divider
+      
+  md-button(ui-sref-active="state-active", ui-sref="authenticated.csnet.config.configDashboard")
+    .fa.fa-lg.fa-cogs
+    span.button-text Configuration
+    
+  md-divider
+    
+  h4.nav-group-header Quick Create
+
+  md-button(ng-click="coreStateSideNavCtrl.showAppointmentUpsertModal($event)")
+    .fa.fa-lg.fa-calendar
+    span.button-text Appointment
+
+  md-button(ng-click="coreStateSideNavCtrl.showBriefContactUpsertModal($event)")
+    .fa.fa-lg.fa-bolt
+    span.button-text Brief Contact
+
+  md-button(ng-click="coreStateSideNavCtrl.showActivityUpsertModal($event)")
+    .fa.fa-lg.fa-folder-open-o
+    span.button-text Activity/Client
+    
+  div(ui-view="activityNavigation", layout="column", flex)

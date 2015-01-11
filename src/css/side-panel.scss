@@ -1,0 +1,116 @@
+@import "_variables.scss";
+
+/*!
+ * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+/* Toggle Styles */
+
+#sidePanelWrapper {
+  transition: all 0.5s ease;
+}
+
+#sidePanelWrapper.side-panel-has-left {
+  padding-left: 0;
+}
+
+#sidePanelWrapper.side-panel-has-right {
+  padding-right: 0;
+}
+
+#sidePanelWrapper.side-panel-collapsed-left {
+  padding-left: 400px;
+  padding-right: 0;
+}
+
+#sidePanelWrapper.side-panel-collapsed-right {
+  padding-right: 400px;
+  padding-left: 0;
+}
+
+.side-panel {
+  z-index: index($z-index-elements, side-panel);
+  position: fixed;
+  width: 0;
+  height: 100%;
+  overflow-y: auto;
+  // background: #000;
+  transition: all 0.5s ease;
+}
+
+.side-panel-left {
+  margin-left: -400px;
+  left: 400px;
+}
+
+.side-panel-right {
+  margin-right: -400px;
+  right: 400px;
+}
+
+#sidePanelWrapper.side-panel-collapsed .side-panel {
+  width: 400px;
+}
+
+#sidePanelContentWrapper {
+  width: 100%;
+  // padding: 15px;
+}
+
+#sidePanelWrapper.side-panel-collapsed #sidePanelContentWrapper {
+  position: absolute;
+}
+
+#sidePanelWrapper.side-panel-collapsed-left #sidePanelContentWrapper {
+  margin-right: -400px;
+}
+
+#sidePanelWrapper.side-panel-collapsed-right #sidePanelContentWrapper {
+  margin-left: -400px;
+}
+
+/* Sidebar Styles */
+
+// .sidebar-nav {
+//   position: absolute;
+//   top: 0;
+//   width: 400px;
+//   margin: 0;
+//   padding: 0;
+// }
+
+@media (min-width: 768px) {
+  #sidePanelWrapper.side-panel-has-left {
+    padding-left: 400px;
+  }
+  #sidePanelWrapper.side-panel-has-right {
+    padding-right: 400px;
+  }
+  #sidePanelWrapper.side-panel-collapsed-left {
+    padding-left: 0;
+  }
+  #sidePanelWrapper.side-panel-collapsed-right {
+    padding-right: 0;
+  }
+  .side-panel {
+    width: 400px;
+  }
+  #sidePanelWrapper.side-panel-collapsed .side-panel {
+    width: 0;
+  }
+  #sidePanelContentWrapper {
+    // padding: 20px;
+
+  }
+  #sidePanelWrapper.side-panel-collapsed #sidePanelContentWrapper {
+    position: relative;
+  }
+  #sidePanelWrapper.side-panel-collapsed-left #sidePanelContentWrapper {
+    margin-right: 0;
+  }
+  #sidePanelWrapper.side-panel-collapsed-right #sidePanelContentWrapper {
+    margin-left: 0;
+  }
+}

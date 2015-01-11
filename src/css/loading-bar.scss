@@ -1,0 +1,17 @@
+@import "_variables.scss";
+
+#loading-bar-spinner {
+  margin-top: 55px;
+  z-index: index($z-index-elements, loading-indicator);
+  top: 0;
+  color: white;
+}
+
+#loading-bar .bar {
+  height: 4px;
+}
+
+/* Fancy blur effect */
+#loading-bar .peg {
+  height: 4px;
+}
