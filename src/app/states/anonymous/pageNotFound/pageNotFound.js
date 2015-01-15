@@ -3,9 +3,9 @@
 import PageNotFoundStateCtrl from './pageNotFoundState-controller';
 
 try {
-  angular.module('myApp.states.anonymous.pageNotFound');
+  angular.module('__APP_NAME_CAMEL_CASED__.states.anonymous.pageNotFound');
 } catch (e) {
-  angular.module('myApp.states.anonymous.pageNotFound', [
+  angular.module('__APP_NAME_CAMEL_CASED__.states.anonymous.pageNotFound', [
     // '__APP_NAME_CAMEL_CASED__.languages'
   ])
     .constant('pathToPageNotFoundState', 'states/anonymous/pageNotFound')

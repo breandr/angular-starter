@@ -4,7 +4,7 @@ module.exports = {
   },
   goToState: function () {
     browser.get('/');
-    $state.go('authenticated.__APP_NAME_CAMEL_CASED__.core.my.myNotificationsList');
+    $state.go('authenticated.core.my.myNotificationsList');
   },
   stateContainer: element(by.id('myNotificationsListState'))
 };

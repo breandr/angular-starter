@@ -4,9 +4,9 @@ import 'components/__APP_NAME_CAMEL_CASED__/signIn/signIn-module';
 import SignInStateCtrl from './signInState-controller';
 
 try {
-  angular.module('myApp.states.anonymous.signIn');
+  angular.module('__APP_NAME_CAMEL_CASED__.states.anonymous.signIn');
 } catch (e) {
-  angular.module('myApp.states.anonymous.signIn', [
+  angular.module('__APP_NAME_CAMEL_CASED__.states.anonymous.signIn', [
     // '__APP_NAME_CAMEL_CASED__.languages',
     '__APP_NAME_CAMEL_CASED__.signIn',
     '__APP_NAME_CAMEL_CASED__.signedInUser'

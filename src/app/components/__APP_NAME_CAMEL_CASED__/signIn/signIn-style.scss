@@ -1,0 +1,13 @@
+$font-size-small: '12px';
+
+.sign-in {
+  .remember-me {
+    .checkbox {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+  .remember-me, .forgot-password {
+    font-size: $font-size-small;
+  }
+}

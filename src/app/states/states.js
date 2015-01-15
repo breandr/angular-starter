@@ -3,11 +3,11 @@ import './anonymous/anonymous';
 import './authenticated/authenticatedState-module';
 
 try {
-  angular.module('myApp.states');
+  angular.module('__APP_NAME_CAMEL_CASED__.states');
 } catch (e) {
-  angular.module('myApp.states', [
+  angular.module('__APP_NAME_CAMEL_CASED__.states', [
     'ui.router',
-    'myApp.states.anonymous',
-    'myApp.states.authenticated'
+    '__APP_NAME_CAMEL_CASED__.states.anonymous',
+    '__APP_NAME_CAMEL_CASED__.states.authenticated'
   ]);
 }

@@ -7,7 +7,7 @@
 describe('AuthenticatedStateCtrl', function () {
   var scope, ctrl;
 
-  beforeEach(angular.mock.module('myApp.states.authenticated'));
+  beforeEach(angular.mock.module('__APP_NAME_CAMEL_CASED__.states.authenticated'));
   beforeEach(angular.mock.inject(function ($rootScope, $controller) {
     scope = $rootScope.$new();
     ctrl = $controller('AuthenticatedStateCtrl', {

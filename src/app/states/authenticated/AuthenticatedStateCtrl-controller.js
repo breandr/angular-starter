@@ -46,12 +46,12 @@ class AuthenticatedStateCtrl {
   onQuickSearchSelect($item, $model) {
     switch ($item.type) {
       case 'Activities':
-        this.$state.go('authenticated.__APP_NAME_CAMEL_CASED__.core.activities.activity.activityOverview', {
+        this.$state.go('authenticated.core.activities.activity.activityOverview', {
           activityId: $item.id
         });
         break;
       case 'Clients':
-        this.$state.go('authenticated.__APP_NAME_CAMEL_CASED__.core.clients.client.clientOverview', {
+        this.$state.go('authenticated.core.clients.client.clientOverview', {
           clientId: $item.id
         });
         break;

@@ -4,7 +4,7 @@ import 'templates';
 
 class __APP_NAME_PASCAL_CASED__App {
   constructor() {
-    angular.module('myApp', [
+    angular.module('__APP_NAME_CAMEL_CASED__', [
       'restangular',
       'ngTable',
       'ngAnimate',
@@ -12,8 +12,8 @@ class __APP_NAME_PASCAL_CASED__App {
       'angulartics',
       'angulartics.google.analytics',
       'pascalprecht.translate',
-      'myApp.states',
-      'myApp.templates'
+      '__APP_NAME_CAMEL_CASED__.states',
+      '__APP_NAME_CAMEL_CASED__.templates'
     ])
       .constant('ACTIVITY_COMMENCEMENT_DATE_MAX_DAYS_AHEAD', 3)
       .constant('datepickerPopupConfig', {

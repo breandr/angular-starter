@@ -4,11 +4,11 @@ import './pageNotFound/pageNotFound';
 import AnonymousStateCtrl from './anonymousState-controller';
 
 try {
-  angular.module('myApp.states.anonymous');
+  angular.module('__APP_NAME_CAMEL_CASED__.states.anonymous');
 } catch (e) {
-  angular.module('myApp.states.anonymous', [
-    'myApp.states.anonymous.pageNotFound',
-    'myApp.states.anonymous.signIn'
+  angular.module('__APP_NAME_CAMEL_CASED__.states.anonymous', [
+    '__APP_NAME_CAMEL_CASED__.states.anonymous.pageNotFound',
+    '__APP_NAME_CAMEL_CASED__.states.anonymous.signIn'
   ])
     .config(function ($stateProvider) {
       $stateProvider

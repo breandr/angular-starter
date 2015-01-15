@@ -1,26 +1,22 @@
 //import angular from 'angular';
-import 'components/__APP_NAME_CAMEL_CASED__/configuration/__APP_NAME_CAMEL_CASED__Configuration-module';
-
 try {
-  angular.module('myApp.states.authenticated.__APP_NAME_CAMEL_CASED__.config.configDashboard');
+  angular.module('__APP_NAME_CAMEL_CASED__.states.authenticated.admin.adminDashboard');
 } catch (e) {
-  angular.module('myApp.states.authenticated.__APP_NAME_CAMEL_CASED__.config.configDashboard', [
-    '__APP_NAME_CAMEL_CASED__.configuration.configuration'
-  ])
-    .constant('PATH_TO_CONFIG_DASHBOARD_STATE', 'states/authenticated/config/configDashboard')
-    .config(function ($stateProvider, PATH_TO_CONFIG_DASHBOARD_STATE) {
+  angular.module('__APP_NAME_CAMEL_CASED__.states.authenticated.admin.adminDashboard', [])
+    .constant('PATH_TO_CONFIG_DASHBOARD_STATE', 'states/authenticated/admin/adminDashboard')
+    .admin(function ($stateProvider, PATH_TO_CONFIG_DASHBOARD_STATE) {
       $stateProvider
-        .state('authenticated.__APP_NAME_CAMEL_CASED__.config.configDashboard', {
+        .state('authenticated.admin.adminDashboard', {
           url: '/dashboard/',
           data: {
-            title: 'Config Dashboard',
+            title: 'Admin Dashboard',
             security: {
-              requiredPermissions: ['__APP_NAME_CAMEL_CASED__.config.dashboard']
+              requiredPermissions: ['__APP_NAME_CAMEL_CASED__.admin.dashboard']
             }
           },
           views: {
             "": {
-              templateUrl: PATH_TO_CONFIG_DASHBOARD_STATE + '/configDashboardState-template.html'
+              templateUrl: PATH_TO_CONFIG_DASHBOARD_STATE + '/adminDashboardState-template.html'
             }
           }
         });

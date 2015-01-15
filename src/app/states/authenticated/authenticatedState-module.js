@@ -1,15 +1,14 @@
 //import angular from 'angular';
-import './__APP_NAME_CAMEL_CASED__/__APP_NAME_CAMEL_CASED__State-module';
-import './__APP_NAME_CAMEL_CASED__Master/__APP_NAME_CAMEL_CASED__MasterState-module';
-import './__APP_NAME_CAMEL_CASED__Consortium/__APP_NAME_CAMEL_CASED__ConsortiumState-module';
+import './admin/adminState-module';
+import './core/coreState-module';
 import AuthenticatedStateCtrl from './AuthenticatedStateCtrl-controller';
 
 try {
-  angular.module('myApp.states.authenticated');
+  angular.module('__APP_NAME_CAMEL_CASED__.states.authenticated');
 } catch (e) {
-  angular.module('myApp.states.authenticated', [
-    'myApp.states.authenticated.admin',
-    'myApp.states.authenticated.core'
+  angular.module('__APP_NAME_CAMEL_CASED__.states.authenticated', [
+    '__APP_NAME_CAMEL_CASED__.states.authenticated.admin',
+    '__APP_NAME_CAMEL_CASED__.states.authenticated.core'
   ])
     .constant('PATH_TO_AUTHENTICATED_STATE', 'states/authenticated')
     .controller('AuthenticatedStateCtrl', AuthenticatedStateCtrl)

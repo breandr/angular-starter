@@ -1,0 +1,26 @@
+.sign-in
+  h3(translate="SIGN_IN.MESSAGE")
+  form(name="signInForm", ng-submit="signIn()", ng-model-options="{ updateOn: 'blur' }", novalidate)
+    .form-row
+      .form-group(ng-class="{'has-error': validator.isFieldInvalid('email')}")
+        input.form-control(type="email", name="email", placeholder="{{'EMAIL' | translate}}", required, ng-model="formData.email", autofocus)
+        .help-block(ng-show="validator.isFieldInvalid('email') && signInForm.email.$error.email") Invalid email
+    .form-row
+      .form-group(ng-class="{'has-error': validator.isFieldInvalid('password')}")
+        input.form-control(type="password", name="password", placeholder="{{'PASSWORD' | translate}}", required, ng-model="formData.password")
+        //- We don't want to show the password hint on sign in
+        //- .help-block(ng-show="signInForm.emailAddress.$error.email && (signInForm.emailAddress.$dirty || signInForm.submitted)") password must be at least 8 characters long, and include at least one uppercase letter and one number.
+    .form-row(layout-align="end")
+      //- .remember-me
+        .checkbox
+          label
+            input(type="checkbox", name="RememberMe", ng-model="formData.rememberMe")
+            span(translate="SIGN_IN.REMEMBER_ME")
+      .form-group.forgot-password
+        a(href="#")
+          span(translate="SIGN_IN.FORGOT_PASSWORD")
+    .row
+      .form-group.clearfix
+        button.btn.btn-primary.pull-right(type="submit")
+          span(translate="SIGN_IN.SUBMIT")
+          |  <i class="fa fa-arrow-circle-o-right"></i>

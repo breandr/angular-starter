@@ -1,36 +1,36 @@
 //import angular from 'angular';
-import './configDashboard/configDashboardState-module';
-import ConfigStateCtrl from './ConfigStateCtrl-controller';
+import './adminDashboard/adminDashboardState-module';
+import AdminStateCtrl from './AdminStateCtrl-controller';
 
 try {
-  angular.module('myApp.states.authenticated.__APP_NAME_CAMEL_CASED__.config');
+  angular.module('__APP_NAME_CAMEL_CASED__.states.authenticated.__APP_NAME_CAMEL_CASED__.admin');
 } catch (e) {
-  angular.module('myApp.states.authenticated.__APP_NAME_CAMEL_CASED__.config', [
-    'myApp.states.authenticated.__APP_NAME_CAMEL_CASED__.config.configDashboard'
+  angular.module('__APP_NAME_CAMEL_CASED__.states.authenticated.__APP_NAME_CAMEL_CASED__.admin', [
+    '__APP_NAME_CAMEL_CASED__.states.authenticated.__APP_NAME_CAMEL_CASED__.admin.adminDashboard'
   ])
-    .constant('PATH_TO_CONFIG_STATE', 'states/authenticated/config')
-    .controller('ConfigStateCtrl', ConfigStateCtrl)
-    .config(function ($stateProvider, PATH_TO_CONFIG_STATE) {
+    .constant('PATH_TO_CONFIG_STATE', 'states/authenticated/admin')
+    .controller('AdminStateCtrl', AdminStateCtrl)
+    .admin(function ($stateProvider, PATH_TO_CONFIG_STATE) {
       $stateProvider
-        .state('authenticated.__APP_NAME_CAMEL_CASED__.config', {
+        .state('authenticated.__APP_NAME_CAMEL_CASED__.admin', {
           abstract: true,
-          url: '/config/',
+          url: '/admin/',
           data: {
-            title: 'Config',
+            title: 'Admin',
             security: {
               allowedUserTypes: ['Root', 'User']
             }
           },
           views: {
             "": {
-              // templateUrl: PATH_TO_CONFIG_STATE + '/configState-template.html',
+              // templateUrl: PATH_TO_CONFIG_STATE + '/adminState-template.html',
               template: '<ui-view layout="row" flex />',
-              controllerAs: 'configStateCtrl',
-              controller: 'ConfigStateCtrl'
+              controllerAs: 'adminStateCtrl',
+              controller: 'AdminStateCtrl'
             },
             "sideNav@authenticated": {
-              templateUrl: PATH_TO_CONFIG_STATE + '/configStateSideNav-template.html',
-              controllerAs: 'configStateSideNavCtrl',
+              templateUrl: PATH_TO_CONFIG_STATE + '/adminStateSideNav-template.html',
+              controllerAs: 'adminStateSideNavCtrl',
               controller: function(){
                 this.isHeaderNavCollapsed = true;
               }
