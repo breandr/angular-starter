@@ -5,7 +5,6 @@ import 'templates';
 class __APP_NAME_PASCAL_CASED__App {
   constructor() {
     angular.module('__APP_NAME_CAMEL_CASED__', [
-      'restangular',
       'ngTable',
       'ngAnimate',
       'LocalStorageModule',
@@ -15,7 +14,6 @@ class __APP_NAME_PASCAL_CASED__App {
       '__APP_NAME_CAMEL_CASED__.states',
       '__APP_NAME_CAMEL_CASED__.templates'
     ])
-      .constant('ACTIVITY_COMMENCEMENT_DATE_MAX_DAYS_AHEAD', 3)
       .constant('datepickerPopupConfig', {
         datepickerPopup: "MMMM dd yyyy",
         currentText: 'Today',
@@ -33,23 +31,12 @@ class __APP_NAME_PASCAL_CASED__App {
         nextText: '›',
         lastText: '»'
       })
-      .config(($urlRouterProvider, $locationProvider, $analyticsProvider, $sceDelegateProvider, $translateProvider, localStorageServiceProvider, cfpLoadingBarProvider, uiSelectConfig) => {
+      .config(($urlRouterProvider, $locationProvider, $analyticsProvider, $sceDelegateProvider, $translateProvider, localStorageServiceProvider) => {
         $sceDelegateProvider.resourceUrlWhitelist([
           'self',
           'https://api.__APP_NAME_CAMEL_CASED__.net.au/**',
           'http://localhost:91/**'
         ]);
-        uiSelectConfig.refreshDelay = 500;
-        cfpLoadingBarProvider.latencyThreshold = 0;
-        cfpLoadingBarProvider.spinnerTemplate = `<div id="loading-bar-spinner">
-         <div class="spinkit-wave">
-           <div class="rect1"></div>
-           <div class="rect2"></div>
-           <div class="rect3"></div>
-           <div class="rect4"></div>
-           <div class="rect5"></div>
-         </div>
-        </div>`;
 
         $translateProvider.useStaticFilesLoader({
           prefix: 'app/languages/',
@@ -128,8 +115,7 @@ class __APP_NAME_PASCAL_CASED__App {
                 title: toState.data.title || ''
               });
             });
-        /*FastClick.attach(document.body);
-
+        /*
   document.addEventListener('backbutton', (e =>) {
     let navDrawer = angular.element('.nav-drawer');
 

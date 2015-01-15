@@ -1,8 +1,8 @@
 import Model from 'components/common/Model';
 
 class UserFactory {
-  constructor($injector, __APP_NAME_PASCAL_CASED__Api, Users) {
-    let apiEndpoint = __APP_NAME_PASCAL_CASED__Api.one('users');
+  constructor($resource, $injector, Users) {
+    let apiEndpoint = $resource('users');
     let key = 'id';
     let collectionType = Users;
     
@@ -16,6 +16,6 @@ class UserFactory {
   }
 }
 
-UserFactory.$inject = ['$injector', '__APP_NAME_PASCAL_CASED__Api', 'Users'];
+UserFactory.$inject = ['$resource', '$injector', 'Users'];
 
 export default UserFactory;

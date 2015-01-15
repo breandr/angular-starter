@@ -1,14 +1,13 @@
 import 'components/__APP_NAME_CAMEL_CASED__/signedInUser/signedInUser-module';
 
 class AuthenticatedStateCtrl {
-  constructor($scope, $timeout, $q, $state, $mdSidenav, signedInUser, __APP_NAME_PASCAL_CASED__Api) {
+  constructor($scope, $timeout, $q, $state, $mdSidenav, signedInUser) {
     this.$q = $q;
     this.$mdSidenav = $mdSidenav;
     this.$timeout = $timeout;
     this.$state = $state;
     this.stateTitle = '__APP_TITLE__';
     this.signedInUser = signedInUser;
-    this.__APP_NAME_PASCAL_CASED__Api = __APP_NAME_PASCAL_CASED__Api;
     
     this.user = signedInUser.data;
     
@@ -60,35 +59,6 @@ class AuthenticatedStateCtrl {
 
   quickSearch(search) {
     if (!search) return;
-
-    return this.$q.all([
-      this.__APP_NAME_PASCAL_CASED__Api.all('activities').all('quick-search').getList({
-        search
-      }).then(response => {
-        let activities = _.map(response.data, (searchResult, index) => {
-          searchResult.type = 'Activities';
-          searchResult.isFirstActivityResult = index === 0;
-          
-          return searchResult;
-        });
-        
-        return activities;
-      }),
-      this.__APP_NAME_PASCAL_CASED__Api.all('clients').all('quick-search').getList({
-        search
-      }).then(response => {
-        let clients = _.map(response.data, (searchResult, index) => {
-          searchResult.type = 'Clients';
-          searchResult.isFirstClientResult = index === 0;
-          
-          return searchResult;
-        });
-        
-        return clients;
-      })
-    ]).then(searchResults => {
-      this.quickSearchResults = [].concat(searchResults[0], searchResults[1]);
-    });
   }
 
   lockScreen() {}
@@ -98,6 +68,6 @@ class AuthenticatedStateCtrl {
   }
 }
 
-AuthenticatedStateCtrl.$inject = ['$scope', '$timeout', '$q', '$state', '$mdSidenav', 'signedInUser', '__APP_NAME_PASCAL_CASED__Api'];
+AuthenticatedStateCtrl.$inject = ['$scope', '$timeout', '$q', '$state', '$mdSidenav', 'signedInUser'];
 
 export default AuthenticatedStateCtrl;

@@ -3,16 +3,16 @@ import './adminDashboard/adminDashboardState-module';
 import AdminStateCtrl from './AdminStateCtrl-controller';
 
 try {
-  angular.module('__APP_NAME_CAMEL_CASED__.states.authenticated.__APP_NAME_CAMEL_CASED__.admin');
+  angular.module('__APP_NAME_CAMEL_CASED__.states.authenticated.admin');
 } catch (e) {
-  angular.module('__APP_NAME_CAMEL_CASED__.states.authenticated.__APP_NAME_CAMEL_CASED__.admin', [
-    '__APP_NAME_CAMEL_CASED__.states.authenticated.__APP_NAME_CAMEL_CASED__.admin.adminDashboard'
+  angular.module('__APP_NAME_CAMEL_CASED__.states.authenticated.admin', [
+    '__APP_NAME_CAMEL_CASED__.states.authenticated.admin.adminDashboard'
   ])
     .constant('PATH_TO_CONFIG_STATE', 'states/authenticated/admin')
     .controller('AdminStateCtrl', AdminStateCtrl)
-    .admin(function ($stateProvider, PATH_TO_CONFIG_STATE) {
+    .config(function ($stateProvider, PATH_TO_CONFIG_STATE) {
       $stateProvider
-        .state('authenticated.__APP_NAME_CAMEL_CASED__.admin', {
+        .state('authenticated.admin', {
           abstract: true,
           url: '/admin/',
           data: {

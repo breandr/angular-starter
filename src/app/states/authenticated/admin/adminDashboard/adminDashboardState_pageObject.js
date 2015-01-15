@@ -1,10 +1,10 @@
 module.exports = {
   navigateHere: function () {
-    browser.get('/config//dashboard/');
+    browser.get('/admin//dashboard/');
   },
   goToState: function () {
     browser.get('/');
-    $state.go('authenticated.__APP_NAME_CAMEL_CASED__.config.configDashboard');
+    $state.go('authenticated.admin.adminDashboard');
   },
-  stateContainer: element(by.id('configDashboardState'))
+  stateContainer: element(by.id('adminDashboardState'))
 };

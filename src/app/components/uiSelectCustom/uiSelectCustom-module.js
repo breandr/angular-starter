@@ -7,7 +7,10 @@ try {
     'ui.select',
     'ui.highlight',
     'ngSanitize'
-  ]).filter('propsFilter', function () {
+  ]).config(function(uiSelectConfig){
+    uiSelectConfig.refreshDelay = 500;
+  })
+  .filter('propsFilter', function () {
     /**
      * From https://github.com/angular-ui/ui-select/blob/master/examples/demo.js
      * AngularJS default filter with the following expression:

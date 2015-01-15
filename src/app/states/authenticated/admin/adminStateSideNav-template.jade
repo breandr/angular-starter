@@ -1,4 +1,4 @@
-md-button(ui-sref-active="state-active", ui-sref="authenticated.__APP_NAME_CAMEL_CASED__.config.somethings.somethingsList") Something
+md-button(ui-sref-active="state-active", ui-sref="authenticated.admin.somethings.somethingsList") Something
 
 md-button(ng-click="configStateSideNavCtrl.isHeaderNavCollapsed = !configStateSideNavCtrl.isHeaderNavCollapsed")
   div(layout="row")
@@ -7,7 +7,7 @@ md-button(ng-click="configStateSideNavCtrl.isHeaderNavCollapsed = !configStateSi
   
 .administration-nav.sub-menu(collapse="configStateSideNavCtrl.isHeaderNavCollapsed")
   div(layout="column")
-    md-button.sub-menu-item(ui-sref-active="state-active", ui-sref="authenticated.__APP_NAME_CAMEL_CASED__.config.header.somethings.somethingsList") Something
+    md-button.sub-menu-item(ui-sref-active="state-active", ui-sref="authenticated.admin.header.somethings.somethingsList") Something
         
     md-divider
     

@@ -1,8 +1,8 @@
 //import angular from 'angular';
 
 class SignedInUserFactory {
-  constructor($injector, $q, $state, localStorageService, User, __APP_NAME_PASCAL_CASED__Api, $mdDialog) {
-    let apiEndpoint = __APP_NAME_PASCAL_CASED__Api.one('my');
+  constructor($resource, $injector, $q, $state, localStorageService, User, $mdDialog) {
+    let apiEndpoint = $resource('my');
     let key = 'id';
     let collectionType = null;
 
@@ -32,7 +32,7 @@ class SignedInUserFactory {
       }
 
       loadData() {
-        this.sites.getList();
+        // this.sites.getList();
 
         // this.organisation.apiEndpoint.one('family-activity-type').get().then(response => {
         //   let familyActivityType = this.organisation.familyActivityType = new ActivityType(response.data);
@@ -86,7 +86,7 @@ class SignedInUserFactory {
       }
 
       signIn(email, password, forceSignIn) {
-        return __APP_NAME_PASCAL_CASED__Api.all('accounts').customGET('authenticate', {
+        return $resource('accounts').customGET('authenticate', {
           email, password, resetToken: forceSignIn
         }).then(response => {
           this.setUserDetails(_.omit(response.data, ['reqParams']));
@@ -99,7 +99,7 @@ class SignedInUserFactory {
       }
 
       signOut() {
-        return __APP_NAME_PASCAL_CASED__Api.all('accounts').customDELETE('sign-out').then(() => {
+        return $resource('accounts').customDELETE('sign-out').then(() => {
           this.clearUserDetails();
           $state.go('anonymous.signIn');
         });
@@ -121,7 +121,6 @@ class SignedInUserFactory {
   }
 }
 
-SignedInUserFactory.$inject = ['$injector', '$q', '$state', 'localStorageService', 'User', '__APP_NAME_PASCAL_CASED__Api', '$mdDialog'];
+SignedInUserFactory.$inject = ['$resource', '$injector', '$q', '$state', 'localStorageService', 'User', '$mdDialog'];
 
-export
-default SignedInUserFactory;
+export default SignedInUserFactory;

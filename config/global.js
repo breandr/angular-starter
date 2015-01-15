@@ -3,8 +3,8 @@ var path = require('path');
 module.exports = function(srcRoot, debugRoot, releaseRoot, pgDebugRoot, pgReleaseRoot, isWin, isLinux, isMac) {
   return {
     moduleName: '__APP_NAME_CAMEL_CASED__',
-    debugBuildPort: 3000,
-    releaseBuildPort: 3001,
+    debugBuildPort: 4000,
+    releaseBuildPort: 4001,
     paths: {
       src: {
         root: srcRoot,

@@ -1,5 +1,5 @@
 //import angular from 'angular';
-import 'components/__APP_NAME_CAMEL_CASED__/api/api';
+import 'components/__APP_NAME_CAMEL_CASED__/api/api-module';
 import 'components/__APP_NAME_CAMEL_CASED__/users/users-module';
 import UserFactory from './User-factory';
 
