@@ -1,8 +1,9 @@
+import Model from './Model';
+
 class Collection{
-  constructor($resource, $injector, collectionOf, apiRoute, apiEndpoint){
-    this.CollectionOf = $injector.get(collectionOf);
-    this.apiRoute = apiRoute;
-    this.apiEndpoint = $resource(apiEndpoint);
+  constructor($resource, $injector, modelName, parentResourceApiRoute){
+    this.Model = $injector.get(modelName);
+    this.apiEndpoint = Model.resource($resource, parentResourceApiRoute || Model.apiRoute, Model.key);
     // this.apiEndpoint = apiEndpoint ? apiEndpoint.all(this.apiRoute) : __APP_NAME_PASCAL_CASED__Api.all(this.apiRoute);
     this.data = null;
   }
@@ -24,7 +25,7 @@ class Collection{
   }
   
   create(data){
-    return new this.CollectionOf(data)
+    return new this.Model(data)
   }
   
   post(keys){
@@ -47,6 +48,6 @@ class Collection{
   }
 }
 
-Collection.$inject = ['$resource', '$injector', 'collectionOf', 'apiRoute', 'apiEndpoint'];
+Collection.$inject = ['$resource', '$injector', 'modelName', 'parentResourceApiRoute'];
 
 export default Collection;

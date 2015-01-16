@@ -1,7 +1,7 @@
 class __APP_NAME_PASCAL_CASED__ApiFactory{
-  constructor($mdToast, localStorageService, API_SERVER){
+  constructor($mdToast, localStorageService, API_URL){
     var restAngular = Restangular.withConfig(function (Configurer) {
-      Configurer.setBaseUrl(API_SERVER);
+      Configurer.setBaseUrl(API_URL);
       Configurer.setFullResponse(true);
       // Configurer.setDefaultHttpFields({
       //   withCredentials: true
@@ -118,6 +118,6 @@ class __APP_NAME_PASCAL_CASED__ApiFactory{
   }
 }
 
-__APP_NAME_PASCAL_CASED__ApiFactory.$inject = ['$mdToast', 'localStorageService', 'API_SERVER'];
+__APP_NAME_PASCAL_CASED__ApiFactory.$inject = ['$mdToast', 'localStorageService', 'API_URL'];
 
 export default __APP_NAME_PASCAL_CASED__ApiFactory;

@@ -9,7 +9,7 @@ class SignedInUserFactory {
     class SignedInUser extends User {
       constructor() {
         super.constructor(localStorageService.get('signedInUser'));
-
+        
         // Override default User apiEndpoint
         this.apiEndpoint = apiEndpoint;
 
@@ -27,8 +27,13 @@ class SignedInUserFactory {
         // this.organisation.setReferenceToActivityTypes();
 
         if (this.data) {
+          this.setAuthToken();
           this.loadData();
         }
+      }
+      
+      setAuthToken(){
+        // $http.defaults.headers.common.Authorization = 'Bearer ' + this.data.authToken;
       }
 
       loadData() {
