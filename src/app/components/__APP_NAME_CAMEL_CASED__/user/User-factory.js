@@ -6,8 +6,8 @@ class UserFactory {
     let collectionType = Users;
     
     class User extends Model {
-      constructor(data = null) {
-        $injector.invoke(super.constructor, this, {data, key, apiRoute, collectionType});
+      constructor(data = null, parentResourceUrl) {
+        $injector.invoke(super.constructor, this, {data, key, apiRoute, parentResourceUrl, collectionType});
       }
     }
 

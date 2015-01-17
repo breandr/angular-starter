@@ -1,8 +1,9 @@
 //import angular from 'angular';
+import Model from 'components/common/Model';
 
 class SignedInUserFactory {
-  constructor($resource, $injector, $q, $state, localStorageService, User, $mdDialog) {
-    let apiEndpoint = $resource('my');
+  constructor($http, $resource, $injector, $q, $state, localStorageService, User, $mdDialog) {
+    let apiEndpoint = Model.resource($resource, 'my', null, 'id');
     let key = 'id';
     let collectionType = null;
 
@@ -12,54 +13,28 @@ class SignedInUserFactory {
         
         // Override default User apiEndpoint
         this.apiEndpoint = apiEndpoint;
-
-        // this.setReferenceToOrganisation();
-        // this.setReferenceToSites();
-        // this.setReferenceToActivityTypes();
-        //
-        // this.organisation.setReferenceToUsers();
-        // this.organisation.setReferenceToOrganisationReports();
-        // this.organisation.setReferenceToFundingSources();
-        // this.organisation.setReferenceToFundingPrograms();
-        // this.organisation.setReferenceToFundingContracts();
-        // this.organisation.setReferenceToFundingTags();
-        // this.organisation.setReferenceToProcessTemplates();
-        // this.organisation.setReferenceToActivityTypes();
-
-        if (this.data) {
-          this.setAuthToken();
+        
+        ///TEST CRAP
+        this.apiEndpoint.remove({
+          id: [1,2]
+        });
+        this.apiEndpoint.add({
+          id: [1,2]
+        });
+        ///TEST CRAP
+        
+        if (this.data.authToken) {
+          this.setAuthHeader();
           this.loadData();
         }
       }
       
-      setAuthToken(){
-        // $http.defaults.headers.common.Authorization = 'Bearer ' + this.data.authToken;
+      setAuthHeader(){
+        $http.defaults.headers.common.Authorization = 'Bearer ' + this.data.authToken;
       }
 
       loadData() {
-        // this.sites.getList();
-
-        // this.organisation.apiEndpoint.one('family-activity-type').get().then(response => {
-        //   let familyActivityType = this.organisation.familyActivityType = new ActivityType(response.data);
-        //
-        //   familyActivityType.getListItems('Title');
-        //   familyActivityType.getListItems('Gender');
-        //   familyActivityType.getListItems('RoleInFamily');
-        // });
-
-        // this.activityTypes.getList().then(() => {
-        //   this.organisation.familyActivityType = _.find(this.activityTypes.data, activityType => {
-        //     return activityType.data.masterActivityType === 5;
-        //   });
-        //
-        //   if(!this.organisation.familyActivityType){
-        //     return console.error('Signed-in user does not have access to family activity type');
-        //   }
-        //
-        //   this.organisation.familyActivityType.getListItems('Title');
-        //   this.organisation.familyActivityType.getListItems('Gender');
-        //   this.organisation.familyActivityType.getListItems('RoleInFamily');
-        // });
+        this.apiEndpoint.get();
       }
 
       setUserDetails(userDetails) {
@@ -69,7 +44,7 @@ class SignedInUserFactory {
 
       clearUserDetails() {
         localStorageService.remove('signedInUser');
-        this.data = localStorageService.get('signedInUser');
+        this.data = {};
       }
 
       isAuthenticated() {
@@ -90,9 +65,9 @@ class SignedInUserFactory {
         return _.size(missingPermissions) === 0;
       }
 
-      signIn(email, password, forceSignIn) {
-        return $resource('accounts').customGET('authenticate', {
-          email, password, resetToken: forceSignIn
+      signIn(email, password) {
+        return $resource('accounts').get('authenticate', {
+          email, password
         }).then(response => {
           this.setUserDetails(_.omit(response.data, ['reqParams']));
           this.loadData();
@@ -104,7 +79,7 @@ class SignedInUserFactory {
       }
 
       signOut() {
-        return $resource('accounts').customDELETE('sign-out').then(() => {
+        return $resource('accounts').delete('deauthenticate').then(() => {
           this.clearUserDetails();
           $state.go('anonymous.signIn');
         });
@@ -126,6 +101,6 @@ class SignedInUserFactory {
   }
 }
 
-SignedInUserFactory.$inject = ['$resource', '$injector', '$q', '$state', 'localStorageService', 'User', '$mdDialog'];
+SignedInUserFactory.$inject = ['$http', '$resource', '$injector', '$q', '$state', 'localStorageService', 'User', '$mdDialog'];
 
 export default SignedInUserFactory;
