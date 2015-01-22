@@ -33,7 +33,10 @@
     "checklist-model": "https://github.com/CommunityServices/checklist-model.git#e91d430ba4",
     "observe-js": "~0.5",
     "ng-table": "~0.4",
-    "system.js": "~0.10"
+    "system.js": "~0.10",
+    "headroom.js": "~0.7",
+    "satellizer": "~0.8",
+    "fontawesome": "~4.2"
   },
   "overrides": {
     "angulartics": {

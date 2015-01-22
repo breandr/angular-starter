@@ -3,6 +3,7 @@
     "MESSAGE": "Sign in to your account",
     "SUBMIT": "Sign in",
     "REMEMBER_ME": "Remember me",
-    "FORGOT_PASSWORD": "Forgot password?"
+    "FORGOT_PASSWORD": "Forgot password?",
+    "CREATE_ACCOUNT": "Create an account"
   }
 }

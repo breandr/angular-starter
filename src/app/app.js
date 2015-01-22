@@ -11,6 +11,7 @@ class __APP_NAME_PASCAL_CASED__App {
       'angulartics',
       'angulartics.google.analytics',
       'pascalprecht.translate',
+      'satellizer',
       '__APP_NAME_CAMEL_CASED__.states',
       '__APP_NAME_CAMEL_CASED__.templates'
     ])
@@ -31,7 +32,21 @@ class __APP_NAME_PASCAL_CASED__App {
         nextText: '›',
         lastText: '»'
       })
-      .config(($urlRouterProvider, $locationProvider, $analyticsProvider, $sceDelegateProvider, $translateProvider, localStorageServiceProvider) => {
+      .constant('GOOGLE_API_KEY', '433628801488-v02jjpd5r9ig0pdacbhpill2asuqtvnf.apps.googleusercontent.com')
+      .constant('FACEBOOK_API_KEY', '843020185739564')
+      .config(($urlRouterProvider, $locationProvider, $analyticsProvider, $sceDelegateProvider, $translateProvider, localStorageServiceProvider, $authProvider, GOOGLE_API_KEY, FACEBOOK_API_KEY) => {
+        $authProvider.signupUrl = 'http://localhost:5000/user/register';
+        $authProvider.loginUrl = 'http://localhost:5000/user/authenticate';
+        $authProvider.loginOnSignup = false;
+        
+        $authProvider.facebook({
+          clientId: FACEBOOK_API_KEY,
+        });
+
+        $authProvider.google({
+          clientId: GOOGLE_API_KEY
+        });
+
         $sceDelegateProvider.resourceUrlWhitelist([
           'self',
           'https://api.__APP_NAME_CAMEL_CASED__.net.au/**',

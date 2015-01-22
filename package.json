@@ -64,6 +64,6 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "setup-protractor": "node scripts/setup-protractor"
+    "install-local": "npm install -g protractor & webdriver-manager update & npm install"
   }
 }

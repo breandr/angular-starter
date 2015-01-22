@@ -2,7 +2,7 @@
 import Model from 'components/common/Model';
 
 class SignedInUserFactory {
-  constructor($http, $resource, $injector, $q, $state, localStorageService, User, $mdDialog) {
+  constructor($http, $resource, $injector, $q, $state, localStorageService, User, $mdDialog, $auth) {
     let apiEndpoint = Model.resource($resource, 'my', null, 'id');
     let key = 'id';
     let collectionType = null;
@@ -15,12 +15,34 @@ class SignedInUserFactory {
         this.apiEndpoint = apiEndpoint;
         
         ///TEST CRAP
-        this.apiEndpoint.remove({
-          id: [1,2]
-        });
-        this.apiEndpoint.add({
-          id: [1,2]
-        });
+        // this.apiEndpoint.query();
+        // this.apiEndpoint.query({
+        //   'ids[]': [1,2],
+        //   status: 3
+        // });
+        // this.apiEndpoint.get();
+        // this.apiEndpoint.get({
+        //   id: 1,
+        //   status: 2
+        // });
+        // this.apiEndpoint.update({
+        //   id: 1,
+        //   status: 2
+        // });
+        // this.apiEndpoint.save({
+        //   id: 1,
+        //   status: 2
+        // });
+        // this.apiEndpoint.remove({
+        //   id: [1,2],
+        //   status: 2
+        // });
+        // this.apiEndpoint.remove({
+        //   id: [1,2]
+        // });
+        // this.apiEndpoint.add({
+        //   id: [1,2]
+        // });
         ///TEST CRAP
         
         if (this.data.authToken) {
@@ -46,8 +68,13 @@ class SignedInUserFactory {
         localStorageService.remove('signedInUser');
         this.data = {};
       }
-
+      
+      register(email, password){
+        return $auth.signup({ email, password });
+      }
+      
       isAuthenticated() {
+        return $auth.isAuthenticated();
         return !_.isEmpty(this.data);
       }
 
@@ -65,24 +92,42 @@ class SignedInUserFactory {
         return _.size(missingPermissions) === 0;
       }
 
-      signIn(email, password) {
-        return $resource('accounts').get('authenticate', {
-          email, password
-        }).then(response => {
-          this.setUserDetails(_.omit(response.data, ['reqParams']));
-          this.loadData();
+      signIn(provider, email, password) {
+        if(provider === 'local'){
+          return $auth.login({
+            email, password
+          }).then(response => {
+            this.setUserDetails(_.omit(response.data, ['reqParams']));
+            this.loadData();
 
-          return response;
-        }, (reason) => {
-          return $q.reject(reason);
-        });
+            return response;
+          }, (reason) => {
+            return $q.reject(reason);
+          });
+          // return $resource('accounts').get('authenticate', {
+          //   email, password
+          // }).then(response => {
+          //   this.setUserDetails(_.omit(response.data, ['reqParams']));
+          //   this.loadData();
+          //
+          //   return response;
+          // }, (reason) => {
+          //   return $q.reject(reason);
+          // });
+        }else{
+          $auth.authenticate(provider);
+        }
       }
 
       signOut() {
-        return $resource('accounts').delete('deauthenticate').then(() => {
+        return $auth.logout().then(() => {
           this.clearUserDetails();
           $state.go('anonymous.signIn');
         });
+        // return $resource('accounts').delete('deauthenticate').then(() => {
+        //   this.clearUserDetails();
+        //   $state.go('anonymous.signIn');
+        // });
       }
 
       goToDefaultState() {
@@ -101,6 +146,6 @@ class SignedInUserFactory {
   }
 }
 
-SignedInUserFactory.$inject = ['$http', '$resource', '$injector', '$q', '$state', 'localStorageService', 'User', '$mdDialog'];
+SignedInUserFactory.$inject = ['$http', '$resource', '$injector', '$q', '$state', 'localStorageService', 'User', '$mdDialog', '$auth'];
 
 export default SignedInUserFactory;

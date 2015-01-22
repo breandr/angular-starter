@@ -14,7 +14,7 @@ try {
       $stateProvider
         .state('anonymous', {
           abstract: true,
-          template: '<ui-view flex>',
+          template: '<ui-view flex layout>',
           controller: 'AnonymousStateCtrl',
           data: {
             security: {

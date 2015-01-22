@@ -57,9 +57,11 @@ class Model {
       httpConfig.headers.Authorization = signedInUser.authToken;
     }
     
-    apiRoute = (parentResourceUrl || API_URL) + '/' + apiRoute + '/:' + key;
+    let baseUrl = (parentResourceUrl || API_URL);
+    let resourceUrl = baseUrl + '/' + apiRoute;
+    let resourceUrlWithKey = resourceUrl + '/:' + key;
 
-    return $resource(apiRoute, {
+    return $resource(resourceUrlWithKey, {
       [key]: '@' + key
     }, {
       query: actionConfig({

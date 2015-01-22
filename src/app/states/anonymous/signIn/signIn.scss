@@ -1,15 +1,17 @@
 @import "_mixins.scss";
 
-.sign-in.container {
-  // @include transparent;
-  width: 400px;
-  margin-top: 100px;
-  // filter: blur(5px) brightness(0.5);
-  .__APP_NAME_CAMEL_CASED__-logo {
-    width: 340px;
+.sign-in {
+  md-card{
+    min-width: 320px;
+    max-width: 480px;
   }
-  h3 {
-    // margin-top: 0; //reinstate once logo is added back
-
+  
+  .__APP_NAME_CAMEL_CASED__-logo {
+    width: 300px;
+    width: 100%;
+  }
+  
+  sign-in-form{
+    width: 100%;
   }
 }

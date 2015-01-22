@@ -1,20 +1,23 @@
-function signInDirective (signInModulePath, FormValidator) {
+function signInDirective (SIGN_IN_FORM_MODULE_PATH, FormValidator) {
   return {
     restrict: 'E',
-    templateUrl: signInModulePath + '/signIn-template.html',
+    templateUrl: SIGN_IN_FORM_MODULE_PATH + '/signIn-template.html',
     link: function(scope, element) {
       scope.validator = new FormValidator(element.find('form:first'), scope.signInForm);
     },
+    bindToController: true,
+    controllerAs: 'signInFormCtrl',
     controller: ['$scope', 'signedInUser', function($scope, signedInUser) {
-      $scope.formData = {
+      this.formData = {
         email: '',
         password: ''
       };
-
-      $scope.signIn = function() {
+      
+      this.signIn = () => {
+        console.log($scope.validator.isFormValid());
         if ($scope.validator.isFormValid()) {
-          signedInUser.signIn($scope.formData.email, $scope.formData.password).then(() => {
-            $scope.signInForm.submitted = false;
+          signedInUser.signIn('local', this.formData.email, this.formData.password).then(() => {
+            this.signInForm.submitted = false;
             return signedInUser.goToDefaultState();
           });
         }
@@ -23,6 +26,6 @@ function signInDirective (signInModulePath, FormValidator) {
   };
 }
 
-signInDirective.$inject = ['signInModulePath', 'FormValidator'];
+signInDirective.$inject = ['SIGN_IN_FORM_MODULE_PATH', 'FormValidator'];
 
 export default signInDirective;

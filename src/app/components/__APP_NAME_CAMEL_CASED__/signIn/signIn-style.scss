@@ -1,13 +1,128 @@
-$font-size-small: '12px';
+$font-size-small: 12px;
 
-.sign-in {
-  .remember-me {
-    .checkbox {
-      margin-top: 0;
-      margin-bottom: 0;
+.sign-in-form {
+  // padding: 8px;
+  
+  // md-input-container:last-child{
+  //   padding-bottom: 6px;
+  // }
+  
+  .remember-me-forgot-password-container{
+    padding-bottom: 12px;
+  }
+  
+  .remember-me,
+  .forgot-password {
+    span{
+      font-size: $font-size-small;
     }
   }
-  .remember-me, .forgot-password {
+  
+  .text-separator{
+    position: relative;
+    height: 34px;
+    text-align: center;
+    background: none;
+    margin-top: 8px;
     font-size: $font-size-small;
+    
+    span{
+      display: inline-block;
+      padding: 8px;
+      margin: 0;
+      background-color: #fff;
+    }
+    
+    hr{
+      width: 90%;
+      margin: -16px auto 10px auto;
+      border-top: 1px solid #dce0e0;
+    }
   }
+  
+  .social-sign-in-container{
+    p{
+      text-align: center;
+    }
+    
+    .social-sign-in-button{
+      background: white;
+      
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    
+    .social-sign-in-facebook{
+      color: #3b5998;
+      
+      &:hover {
+        color: #2d4373;
+      }
+    }
+    
+    .social-sign-in-google-plus{
+        color: #dd4b39;
+        
+        &:hover {
+          color: #e74b37;
+        }
+    }
+  }
+  
+  // .social-sign-in{
+  //   display: inline-block;
+  //   color: white;
+  //   width:100%;
+  //   // width: 165px;
+  //   border-radius: 5px;
+  //   white-space: nowrap;
+  //   height: 34px;
+  //
+  //   &:hover {
+  //     cursor: hand;
+  //   }
+  //
+  //   .icon {
+  //     background: transparent 5px 50% no-repeat;
+  //     display: inline-block;
+  //     vertical-align: middle;
+  //     width: 35px;
+  //     height: 35px;
+  //     border-right: #bb3f30 1px solid;
+  //   }
+  //
+  //   .button-text {
+  //     display: inline-block;
+  //     vertical-align: middle;
+  //     font-size: 14px;
+  //     font-weight: bold;
+  //     /* Use the Roboto font that is loaded in the <head> */
+  //     // font-family: 'Roboto', arial, sans-serif;
+  //   }
+  // }
+  //
+  // .social-sign-in-facebook {
+  //   background: #3b5998;
+  //
+  //   &:hover {
+  //     background: #2d4373;
+  //   }
+  //
+  //   .icon {
+  //     background-image: url("/img/google_plus_btn_red_32.png");
+  //   }
+  // }
+  //
+  // .social-sign-in-google-plus {
+  //   background: #dd4b39;
+  //
+  //   &:hover {
+  //     background: #e74b37;
+  //   }
+  //
+  //   .icon {
+  //     background-image: url("/img/google_plus_btn_red_32.png");
+  //   }
+  // }
 }
