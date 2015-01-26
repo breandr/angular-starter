@@ -10,10 +10,10 @@ class SignedInUserFactory {
     class SignedInUser extends User {
       constructor() {
         super.constructor(localStorageService.get('me'));
-        
+
         // Override default User apiEndpoint
         this.apiEndpoint = apiEndpoint;
-        
+
         ///TEST CRAP
         // this.apiEndpoint.query();
         // this.apiEndpoint.query({
@@ -44,13 +44,13 @@ class SignedInUserFactory {
         //   id: [1,2]
         // });
         ///TEST CRAP
-        
+
         if (this.data.authToken) {
           this.setAuthHeader();
           this.loadData();
         }
       }
-      
+
       setAuthHeader(){
         $http.defaults.headers.common.Authorization = 'Bearer ' + this.data.authToken;
       }
@@ -68,11 +68,11 @@ class SignedInUserFactory {
         localStorageService.remove('me');
         this.data = {};
       }
-      
+
       register(email, password){
         return $auth.signup({ email, password });
       }
-      
+
       isAuthenticated() {
         return $auth.isAuthenticated();
         return !_.isEmpty(this.data);
@@ -95,7 +95,7 @@ class SignedInUserFactory {
       socialSignIn(provider){
         return $auth.authenticate(provider);
       }
-      
+
       localSignIn(provider, email, password) {
         if(provider === 'local'){
           return $auth.login({
@@ -135,14 +135,7 @@ class SignedInUserFactory {
       }
 
       goToDefaultState() {
-        switch (this.data.userType) {
-          case 'User':
-            return $state.go('authenticated.core.my.profile');
-          case 'Admin':
-            return $state.go('authenticated.admin.dashboard');
-          default:
-            return false;
-        }
+        return $state.go('authenticated.core.my.myProfile');
       }
     }
 

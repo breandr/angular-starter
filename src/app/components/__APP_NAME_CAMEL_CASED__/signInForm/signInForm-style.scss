@@ -2,22 +2,22 @@ $font-size-small: 12px;
 
 .sign-in-form {
   // padding: 8px;
-  
+
   // md-input-container:last-child{
   //   padding-bottom: 6px;
   // }
-  
+
   .remember-me-forgot-password-container{
     padding-bottom: 12px;
   }
-  
+
   .remember-me,
   .forgot-password {
     span{
       font-size: $font-size-small;
     }
   }
-  
+
   .text-separator{
     position: relative;
     height: 34px;
@@ -25,51 +25,51 @@ $font-size-small: 12px;
     background: none;
     margin-top: 8px;
     font-size: $font-size-small;
-    
+
     span{
       display: inline-block;
       padding: 8px;
       margin: 0;
       background-color: #fff;
     }
-    
+
     hr{
       width: 90%;
       margin: -16px auto 10px auto;
       border-top: 1px solid #dce0e0;
     }
   }
-  
+
   .social-sign-in-container{
     p{
       text-align: center;
     }
-    
+
     .social-sign-in-button{
       background: white;
-      
+
       &:hover {
         cursor: pointer;
       }
     }
-    
+
     .social-sign-in-facebook{
       color: #3b5998;
-      
+
       &:hover {
         color: #2d4373;
       }
     }
-    
-    .social-sign-in-google-plus{
+
+    .social-sign-in-google{
         color: #dd4b39;
-        
+
         &:hover {
           color: #e74b37;
         }
     }
   }
-  
+
   // .social-sign-in{
   //   display: inline-block;
   //   color: white;
@@ -114,7 +114,7 @@ $font-size-small: 12px;
   //   }
   // }
   //
-  // .social-sign-in-google-plus {
+  // .social-sign-in-google {
   //   background: #dd4b39;
   //
   //   &:hover {

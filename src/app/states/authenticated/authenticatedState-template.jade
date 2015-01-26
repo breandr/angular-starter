@@ -6,7 +6,7 @@
       a.logo(ui-sref="authenticated.core.dashboard.viewDashboard")
         img(src="img/__APP_NAME_CAMEL_CASED__-logo-square-sm.png")
         h3 __APP_NAME_PASCAL_CASED__
-          
+
       h2 {{authenticatedStateCtrl.organisationName}}
       #appBarActionButtons.md-toolbar-tools(flex, layout="row", layout-align="end")
         #appBarQuickSearch(layout)
@@ -20,7 +20,7 @@
                       .activity-master-type.fa.fa-3x(class="authenticatedStateCtrl.getActivityMasterTypeIcon(searchResult.activityMasterType)")
                       div(flex, layout="column")
                         div(layout="row")
-                          .activity-identifier(ng-bind-html='searchResult.name | highlight: $select.search', flex)
+                          .activity-identifier(ng-bind-html='searchResult.name', flex)
                           .activity-status(class="{{getActivityStatusContextualClass(searchResult.status)}}") {{authenticatedStateCtrl.getActivityStatus(searchResult.status)}}
                         div(layout="row")
                           .activity-commencement-date(flex) {{searchResult.commencementDate}}
@@ -30,36 +30,36 @@
                       .activity-master-type.fa.fa-3x(class="authenticatedStateCtrl.getActivityMasterTypeIcon(searchResult.activityMasterType)")
                       div(flex, layout="column")
                         div(layout="row")
-                          .client-name(ng-bind-html='searchResult.name | highlight: $select.search', flex)
+                          .client-name(ng-bind-html='searchResult.name', flex)
                           .client-sm(class="{{getActivityStatusContextualClass(searchResult.status)}}") {{authenticatedStateCtrl.getActivityStatus(searchResult.status)}}
                         div
                         .client-address {{searchResult.address}}
-            
+
             md-button.input-addon-item(ng-click="authenticatedStateCtrl.showQuickSearchField($event)")
               i.fa.fa-lg.fa-search &nbsp;
               //span(hide, inline-block-md) Quick-Search
-                
+
         #userProfileActionButton.action-button(dropdown)
           md-button.dropdown-toggle(layout="row")
             img.user-avatar.img-circle(alt, src="/img/users/1/avatar.jpg")
             span.user-name(hide, inline-block-md, flex) &nbsp; {{authenticatedStateCtrl.user.firstName}} {{authenticatedStateCtrl.user.lastName}} &nbsp;
             i.fa.fa-angle-down.fa-lg(hide, inline-block-md)
-        
+
           .dropdown-menu
             section(layout="column")
               md-button(ui-sref-active="state-active", ui-sref="authenticated.core.my.myProfile")
                 i.fa.fa-user &nbsp;
                 span My Profile
-              
+
               md-divider
-                
+
               md-button(ng-click="authenticatedStateCtrl.signOut()")
                 i.fa.fa-power-off &nbsp;
                 span Sign Out
-                
+
         div(ui-view="appBarActionButtons", layout)
   section#contentArea(layout="row" flex)
     md-sidenav.md-sidenav-left.md-whiteframe-z2#sideNav(md-component-id="sideNav", layout="column", md-is-locked-open="true")
       div(layout="column", flex, layout-align="start", ui-view="sideNav")
-          
+
     section(ui-view, layout="row", flex)

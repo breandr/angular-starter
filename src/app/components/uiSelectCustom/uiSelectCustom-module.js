@@ -5,7 +5,6 @@ try {
 } catch (e) {
   angular.module('__APP_NAME_CAMEL_CASED__.uiSelectCustom', [
     'ui.select',
-    'ui.highlight',
     'ngSanitize'
   ]).config(function(uiSelectConfig){
     uiSelectConfig.refreshDelay = 500;

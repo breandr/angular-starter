@@ -1,6 +1,6 @@
 //import angular from 'angular';
 // import 'components/__APP_NAME_CAMEL_CASED__/languages/languages';
-import 'components/__APP_NAME_CAMEL_CASED__/signIn/signIn-module';
+import 'components/__APP_NAME_CAMEL_CASED__/signInForm/signInForm-module';
 import SignInStateCtrl from './signInState-controller';
 
 try {
@@ -8,7 +8,7 @@ try {
 } catch (e) {
   angular.module('__APP_NAME_CAMEL_CASED__.states.anonymous.signIn', [
     // '__APP_NAME_CAMEL_CASED__.languages',
-    '__APP_NAME_CAMEL_CASED__.signIn',
+    '__APP_NAME_CAMEL_CASED__.signInForm',
     '__APP_NAME_CAMEL_CASED__.me'
   ])
     .constant('pathToSignInState', 'states/anonymous/signIn')

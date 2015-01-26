@@ -35,14 +35,14 @@ class __APP_NAME_PASCAL_CASED__App {
       .constant('GOOGLE_API_KEY', '433628801488-v02jjpd5r9ig0pdacbhpill2asuqtvnf.apps.googleusercontent.com')
       .constant('FACEBOOK_API_KEY', '845171498857766')
       .config(($urlRouterProvider, $locationProvider, $analyticsProvider, $sceDelegateProvider, $translateProvider, localStorageServiceProvider, $authProvider, GOOGLE_API_KEY, FACEBOOK_API_KEY) => {
-        $authProvider.signupUrl = 'http://localhost:5000/user/register';
-        $authProvider.loginUrl = 'http://localhost:5000/user/authenticate';
+        $authProvider.signupUrl = 'http://localhost:5000/auth/register';
+        $authProvider.loginUrl = 'http://localhost:5000/auth/local';
         $authProvider.loginOnSignup = false;
         $authProvider.facebook({
-          url: 'http://localhost:5000/user/auth/facebook'
+          url: 'http://localhost:5000/auth/facebook'
         });
         $authProvider.google({
-          url: 'http://localhost:5000/user/auth/google'
+          url: 'http://localhost:5000/auth/google'
         });
 
         $authProvider.facebook({

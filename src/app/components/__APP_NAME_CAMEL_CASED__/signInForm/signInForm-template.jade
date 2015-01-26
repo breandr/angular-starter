@@ -4,53 +4,49 @@ md-content.md-padding.sign-in-form
       label {{'EMAIL' | translate}}
       input.form-control(type="email", name="email", required, ng-model="signInFormCtrl.formData.email", autofocus)
       .help-block(ng-show="signInFormCtrl.validator.isFieldInvalid('email') && signInForm.email.$error.email") Invalid email
-    
+
     md-input-container(ng-class="{'has-error': signInFormCtrl.validator.isFieldInvalid('password')}")
       label {{'PASSWORD' | translate}}
       input.form-control(type="password", name="password", required, ng-model="signInFormCtrl.formData.password")
       //- .help-block(ng-show="signInForm.emailAddress.$error.email && (signInForm.emailAddress.$dirty || signInForm.submitted)") password must be at least 8 characters long, and include at least one uppercase letter and one number.
-    
+
     .remember-me-forgot-password-container(flex, layout="row", layout-align="space-between center")
-      md-switch.md-primary.remember-me(name="RememberMe", ng-model="signInFormCtrl.formData.rememberMe")
-        span(translate="SIGN_IN.REMEMBER_ME")
-      
+      md-switch.md-primary.remember-me(name="RememberMe", ng-model="signInFormCtrl.formData.rememberMe") {{ 'SIGN_IN_FORM.REMEMBER_ME' | translate }}
+
       a.forgot-password(href="#")
-        span(translate="SIGN_IN.FORGOT_PASSWORD")
-            
+        span(translate="SIGN_IN_FORM.FORGOT_PASSWORD")
+
     div(layout="row", layout-align="space-between center")
-      md-button.sign-in-btn.md-raised.md-primary(type="submit", flex)
-        span(translate="SIGN_IN.SUBMIT")
-            
+      md-button.sign-in-btn.md-raised.md-primary(type="submit", flex) {{ 'SIGN_IN_FORM.SUBMIT' | translate }}
+
     //-.forgot-password-create-account-container(layout="row", layout-align="space-between center")
       small
-      a.create-account.highlight(href="#")
-        span(translate="SIGN_IN.CREATE_ACCOUNT")
-          
+      a.create-account.highlight(href="#") {{ 'SIGN_IN_FORM.CREATE_ACCOUNT' | translate }}
+
   .text-separator
     span or sign in with
     hr
-      
+
   .social-sign-in-container(flex, layout="row", layout-align="space-around center")
-    md-button.md-fab.social-sign-in-button.social-sign-in-facebook(ng-click="signInFormCtrl.socialSignIn('facebook')")
+    md-button.md-fab.social-sign-in-button.social-sign-in-facebook(aria-label="Sign in with Facebook", ng-click="signInFormCtrl.socialSignIn('facebook')")
       i.fa.fa-2x.fa-facebook
-    md-button.md-fab.social-sign-in-button.social-sign-in-google-plus(ng-click="signInFormCtrl.socialSignIn('google')")
+    md-button.md-fab.social-sign-in-button.social-sign-in-google(aria-label="Sign in with Google", ng-click="signInFormCtrl.socialSignIn('google')")
       i.fa.fa-2x.fa-google-plus
     //-span.fa-stack.fa-2x.social-sign-in-button.social-sign-in-facebook
       i.fa.fa-circle.fa-stack-2x
       i.fa.fa-facebook.fa-stack-1x.fa-inverse
-        
-    //-span.fa-stack.fa-2x.social-sign-in-button.social-sign-in-google-plus
+
+    //-span.fa-stack.fa-2x.social-sign-in-button.social-sign-in-google
       i.fa.fa-circle.fa-stack-2x
       i.fa.fa-google-plus.fa-stack-1x.fa-inverse
-    
+
   .text-separator
     span don't have an account yet?
     hr
 
   div(layout="row", layout-align="space-between center")
-    md-button.create-account-btn.md-accent(flex)
-      span(translate="SIGN_IN.CREATE_ACCOUNT")
-  //-fa-stack.fa-4x.social-sign-in-button.social-sign-in-google-plus
+    md-button.create-account-btn.md-accent(flex) {{ 'SIGN_IN_FORM.CREATE_ACCOUNT' | translate }}
+  //-fa-stack.fa-4x.social-sign-in-button.social-sign-in-google
       i.fa.fa-circle.fa-stack-2x
       i.fa.fa-google-plus.fa-stack-1x
   //-a.btn.btn-block.btn-social.btn-facebook
@@ -59,6 +55,6 @@ md-content.md-padding.sign-in-form
   //-.social-sign-in.social-sign-in-facebook
     i.fa.fa-facebook
     span.button-text(ng-click="signInFormCtrl.authenticate('facebook')") Sign in with Facebook
-  //-.social-sign-in.social-sign-in-google-plus
+  //-.social-sign-in.social-sign-in-google
     span.icon
     span.button-text(ng-click="signInFormCtrl.authenticate('google')") Sign in with Google

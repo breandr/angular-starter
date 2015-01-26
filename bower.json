@@ -41,15 +41,21 @@
   "overrides": {
     "angulartics": {
       "main": [
-        "src/angulartics.js",
-        "src/angulartics-ga.js"
+        "./src/angulartics.js",
+        "./src/angulartics-ga.js"
       ]
     },
     "lodash": {
-      "main": "dist/lodash.js"
+      "main": "./dist/lodash.js"
+    },
+    "ng-table": {
+      "main": [
+        "./dist/ng-table.js",
+        "./dist/ng-table.css"
+      ]
     },
     "underscore.string": {
-      "main": "lib/underscore.string.js"
+      "main": "./lib/underscore.string.js"
     }
   },
   "resolutions": {
