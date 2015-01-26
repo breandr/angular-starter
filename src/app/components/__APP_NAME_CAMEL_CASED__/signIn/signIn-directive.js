@@ -1,4 +1,6 @@
-function signInDirective (SIGN_IN_FORM_MODULE_PATH, FormValidator) {
+//import SignInCtrlFactory from './SignInCtrl-controller';
+
+function signInDirective (SIGN_IN_FORM_MODULE_PATH, FormValidator, SignInCtrl) {
   return {
     restrict: 'E',
     templateUrl: SIGN_IN_FORM_MODULE_PATH + '/signIn-template.html',
@@ -7,25 +9,10 @@ function signInDirective (SIGN_IN_FORM_MODULE_PATH, FormValidator) {
     },
     bindToController: true,
     controllerAs: 'signInFormCtrl',
-    controller: ['$scope', 'signedInUser', function($scope, signedInUser) {
-      this.formData = {
-        email: '',
-        password: ''
-      };
-      
-      this.signIn = () => {
-        console.log($scope.validator.isFormValid());
-        if ($scope.validator.isFormValid()) {
-          signedInUser.signIn('local', this.formData.email, this.formData.password).then(() => {
-            this.signInForm.submitted = false;
-            return signedInUser.goToDefaultState();
-          });
-        }
-      };
-    }]
+    controller: SignInCtrl
   };
 }
 
-signInDirective.$inject = ['SIGN_IN_FORM_MODULE_PATH', 'FormValidator'];
+signInDirective.$inject = ['SIGN_IN_FORM_MODULE_PATH', 'FormValidator', 'SignInCtrl'];
 
 export default signInDirective;

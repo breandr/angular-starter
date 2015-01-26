@@ -33,12 +33,18 @@ class __APP_NAME_PASCAL_CASED__App {
         lastText: '»'
       })
       .constant('GOOGLE_API_KEY', '433628801488-v02jjpd5r9ig0pdacbhpill2asuqtvnf.apps.googleusercontent.com')
-      .constant('FACEBOOK_API_KEY', '843020185739564')
+      .constant('FACEBOOK_API_KEY', '845171498857766')
       .config(($urlRouterProvider, $locationProvider, $analyticsProvider, $sceDelegateProvider, $translateProvider, localStorageServiceProvider, $authProvider, GOOGLE_API_KEY, FACEBOOK_API_KEY) => {
         $authProvider.signupUrl = 'http://localhost:5000/user/register';
         $authProvider.loginUrl = 'http://localhost:5000/user/authenticate';
         $authProvider.loginOnSignup = false;
-        
+        $authProvider.facebook({
+          url: 'http://localhost:5000/user/auth/facebook'
+        });
+        $authProvider.google({
+          url: 'http://localhost:5000/user/auth/google'
+        });
+
         $authProvider.facebook({
           clientId: FACEBOOK_API_KEY,
         });
@@ -80,11 +86,11 @@ class __APP_NAME_PASCAL_CASED__App {
             }
 
             params = [];
-            
+
             angular.forEach(search, (v, k) => {
               params.push(k + '=' + v);
             });
-            
+
             return path + '/?' + params.join('&');
           });
 
@@ -95,7 +101,7 @@ class __APP_NAME_PASCAL_CASED__App {
         // $locationProvider configuration
         $locationProvider.html5Mode(true); // SET THIS TO TRUE FOR WEB APP BUILD ONLY
       })
-      .run(($rootScope, $state, $translate, signedInUser, $window, $location) => {
+      .run(($rootScope, $state, $translate, me, $window, $location) => {
         $rootScope.$watch(()=> Platform.performMicrotaskCheckpoint());
         $rootScope
           .$on('$stateChangeStart', (event, toState) => {
@@ -104,10 +110,10 @@ class __APP_NAME_PASCAL_CASED__App {
 
             if (allowAnonymous) {
               return true;
-            } else if (!signedInUser.isAuthenticated()) {
+            } else if (!me.isAuthenticated()) {
               event.preventDefault();
               return $state.go('anonymous.signIn');
-            } else if (!signedInUser.isAuthorised(stateSecurity.requiredPermissions || [])) {
+            } else if (!me.isAuthorised(stateSecurity.requiredPermissions || [])) {
               event.preventDefault();
               return $state.go('^');
             }
@@ -121,8 +127,8 @@ class __APP_NAME_PASCAL_CASED__App {
                 return;
               }
 
-              if (signedInUser.data && signedInUser.data.userGuid) {
-                $window.ga('set', '&uid', signedInUser.data.userGuid);
+              if (me.data && me.data.userGuid) {
+                $window.ga('set', '&uid', me.data.userGuid);
               }
 
               $window.ga('send', 'pageview', {

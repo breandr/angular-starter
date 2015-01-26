@@ -1,15 +1,15 @@
-import 'components/__APP_NAME_CAMEL_CASED__/signedInUser/signedInUser-module';
+import 'components/__APP_NAME_CAMEL_CASED__/me/me-module';
 
 class AuthenticatedStateCtrl {
-  constructor($scope, $timeout, $q, $state, $mdSidenav, signedInUser) {
+  constructor($scope, $timeout, $q, $state, $mdSidenav, me) {
     this.$q = $q;
     this.$mdSidenav = $mdSidenav;
     this.$timeout = $timeout;
     this.$state = $state;
     this.stateTitle = '__APP_TITLE__';
-    this.signedInUser = signedInUser;
+    this.me = me;
     
-    this.user = signedInUser.data;
+    this.user = me.data;
     
     angular.element('body').removeClass('anonymous').addClass('authenticated');
 
@@ -64,10 +64,10 @@ class AuthenticatedStateCtrl {
   lockScreen() {}
 
   signOut() {
-    this.signedInUser.signOut();
+    this.me.signOut();
   }
 }
 
-AuthenticatedStateCtrl.$inject = ['$scope', '$timeout', '$q', '$state', '$mdSidenav', 'signedInUser'];
+AuthenticatedStateCtrl.$inject = ['$scope', '$timeout', '$q', '$state', '$mdSidenav', 'me'];
 
 export default AuthenticatedStateCtrl;

@@ -1,5 +1,5 @@
 //import angular from 'angular';
-import 'components/__APP_NAME_CAMEL_CASED__/signedInUser/signedInUser-module';
+import 'components/__APP_NAME_CAMEL_CASED__/me/me-module';
 import __APP_NAME_PASCAL_CASED__ResourceFactory from './__APP_NAME_PASCAL_CASED__Resource-factory';
 
 try {
@@ -9,7 +9,7 @@ try {
     'LocalStorageModule',
     'ngMaterial',
     'ngResource',
-    '__APP_NAME_CAMEL_CASED__.signedInUser'
+    '__APP_NAME_CAMEL_CASED__.me'
   ])
     .factory('__APP_NAME_CAMEL_CASED__Resource', __APP_NAME_PASCAL_CASED__ResourceFactory)
     .constant('API_URL', 'http://api.__APP_NAME_CAMEL_CASED__.com')

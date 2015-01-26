@@ -9,7 +9,7 @@ try {
   angular.module('__APP_NAME_CAMEL_CASED__.states.anonymous.signIn', [
     // '__APP_NAME_CAMEL_CASED__.languages',
     '__APP_NAME_CAMEL_CASED__.signIn',
-    '__APP_NAME_CAMEL_CASED__.signedInUser'
+    '__APP_NAME_CAMEL_CASED__.me'
   ])
     .constant('pathToSignInState', 'states/anonymous/signIn')
     .config(function ($stateProvider, pathToSignInState) {

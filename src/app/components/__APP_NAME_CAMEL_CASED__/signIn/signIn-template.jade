@@ -1,5 +1,5 @@
 md-content.md-padding.sign-in-form
-  form(name="signInForm", ng-submit="signInFormCtrl.signIn()", ng-model-options="{ updateOn: 'blur' }", novalidate)
+  form(name="signInForm", ng-submit="signInFormCtrl.localSignIn()", ng-model-options="{ updateOn: 'blur' }", novalidate)
     md-input-container(ng-class="{'has-error': signInFormCtrl.validator.isFieldInvalid('email')}")
       label {{'EMAIL' | translate}}
       input.form-control(type="email", name="email", required, ng-model="signInFormCtrl.formData.email", autofocus)
@@ -31,9 +31,9 @@ md-content.md-padding.sign-in-form
     hr
       
   .social-sign-in-container(flex, layout="row", layout-align="space-around center")
-    md-button.md-fab.social-sign-in-button.social-sign-in-facebook
+    md-button.md-fab.social-sign-in-button.social-sign-in-facebook(ng-click="signInFormCtrl.socialSignIn('facebook')")
       i.fa.fa-2x.fa-facebook
-    md-button.md-fab.social-sign-in-button.social-sign-in-google-plus
+    md-button.md-fab.social-sign-in-button.social-sign-in-google-plus(ng-click="signInFormCtrl.socialSignIn('google')")
       i.fa.fa-2x.fa-google-plus
     //-span.fa-stack.fa-2x.social-sign-in-button.social-sign-in-facebook
       i.fa.fa-circle.fa-stack-2x

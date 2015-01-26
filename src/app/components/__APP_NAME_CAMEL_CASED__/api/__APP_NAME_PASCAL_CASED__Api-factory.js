@@ -14,13 +14,13 @@ class __APP_NAME_PASCAL_CASED__ApiFactory{
 
       // Add Authorization Header
       Configurer.addFullRequestInterceptor(function () {
-        var signedInUser = localStorageService.get('signedInUser');
+        var me = localStorageService.get('me');
 
-        if (!signedInUser) {
+        if (!me) {
           return;
         }
 
-        var authToken = signedInUser.authToken;
+        var authToken = me.authToken;
 
         return {
           headers: {

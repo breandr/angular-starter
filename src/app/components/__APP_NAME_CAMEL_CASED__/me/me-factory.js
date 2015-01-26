@@ -9,7 +9,7 @@ class SignedInUserFactory {
 
     class SignedInUser extends User {
       constructor() {
-        super.constructor(localStorageService.get('signedInUser'));
+        super.constructor(localStorageService.get('me'));
         
         // Override default User apiEndpoint
         this.apiEndpoint = apiEndpoint;
@@ -60,12 +60,12 @@ class SignedInUserFactory {
       }
 
       setUserDetails(userDetails) {
-        localStorageService.set('signedInUser', userDetails);
-        this.data = localStorageService.get('signedInUser');
+        localStorageService.set('me', userDetails);
+        this.data = localStorageService.get('me');
       }
 
       clearUserDetails() {
-        localStorageService.remove('signedInUser');
+        localStorageService.remove('me');
         this.data = {};
       }
       
@@ -87,12 +87,16 @@ class SignedInUserFactory {
 
         let missingPermissions = _.reject(requiredPermissions, (requiredPermission) => this.hasPermission(requiredPermission));
 
-        console.warn('signedInUser.isAuthorised is always returning true. Remove this when permissions have been properly implemented');
+        console.warn('me.isAuthorised is always returning true. Remove this when permissions have been properly implemented');
         return true;
         return _.size(missingPermissions) === 0;
       }
 
-      signIn(provider, email, password) {
+      socialSignIn(provider){
+        return $auth.authenticate(provider);
+      }
+      
+      localSignIn(provider, email, password) {
         if(provider === 'local'){
           return $auth.login({
             email, password

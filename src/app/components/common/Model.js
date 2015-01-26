@@ -51,10 +51,10 @@ class Model {
       }
     };
     let actionConfig = config => _.extend(config, httpConfig);
-    let signedInUser = sessionStorage.getItem('signedInUser');
+    let me = sessionStorage.getItem('me');
 
-    if (signedInUser) {
-      httpConfig.headers.Authorization = signedInUser.authToken;
+    if (me) {
+      httpConfig.headers.Authorization = me.authToken;
     }
     
     let baseUrl = (parentResourceUrl || API_URL);

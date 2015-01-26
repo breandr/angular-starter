@@ -11,7 +11,7 @@ gulp.task('connect', function() {
     root: [paths.debug.root],
     port: buildConfig.debugBuildPort,
     livereload: {
-      port: 35729
+      port: 4085
     },
     middleware: function(connect, options) {
       return [
@@ -26,7 +26,7 @@ gulp.task('connect', function() {
       root: [paths.release.root],
       port: buildConfig.releaseBuildPort,
       livereload: {
-        port: 35739
+        port: 4086
       },
       middleware: function(connect, options) {
         return [

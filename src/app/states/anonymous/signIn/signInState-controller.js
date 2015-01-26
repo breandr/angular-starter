@@ -1,12 +1,12 @@
-import 'components/__APP_NAME_CAMEL_CASED__/signedInUser/signedInUser-module';
+import 'components/__APP_NAME_CAMEL_CASED__/me/me-module';
 
-function signInStateCtrl ($state, signedInUser) {
+function signInStateCtrl ($state, me) {
   // Redirect to dashboard if already authenticated
-  if (signedInUser.isAuthenticated()) {
-    return signedInUser.goToDefaultState();
+  if (me.isAuthenticated()) {
+    return me.goToDefaultState();
   }
 }
 
-signInStateCtrl.$inject = ['$state', 'signedInUser'];
+signInStateCtrl.$inject = ['$state', 'me'];
 
 export default signInStateCtrl;
