@@ -37,7 +37,7 @@ class __APP_NAME_PASCAL_CASED__App {
       .config(($urlRouterProvider, $locationProvider, $analyticsProvider, $sceDelegateProvider, $translateProvider, localStorageServiceProvider, $authProvider, GOOGLE_API_KEY, FACEBOOK_API_KEY) => {
         $authProvider.signupUrl = 'http://localhost:5000/auth/register';
         $authProvider.loginUrl = 'http://localhost:5000/auth/local';
-        $authProvider.loginOnSignup = false;
+        // $authProvider.loginOnSignup = false;
         $authProvider.facebook({
           url: 'http://localhost:5000/auth/facebook'
         });
@@ -112,7 +112,7 @@ class __APP_NAME_PASCAL_CASED__App {
               return true;
             } else if (!me.isAuthenticated()) {
               event.preventDefault();
-              return $state.go('anonymous.signIn');
+              return $state.go('anonymous.accounts.signIn');
             } else if (!me.isAuthorised(stateSecurity.requiredPermissions || [])) {
               event.preventDefault();
               return $state.go('^');

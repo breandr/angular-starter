@@ -1,0 +1,22 @@
+.register-form(layout="column", flex)
+  form(name="registerForm", ng-submit="registerFormCtrl.register()", ng-model-options="{ updateOn: 'blur' }", novalidate)
+    md-input-container(ng-class="{'has-error': validator.isFieldInvalid('email')}")
+      label {{'EMAIL' | translate}}
+      input.form-control(type="email", name="email", required, ng-model="registerFormCtrl.formData.email", autofocus)
+      .help-block(ng-show="validator.isFieldInvalid('email') && registerForm.email.$error.email") Invalid email
+
+    md-input-container(ng-class="{'has-error': validator.isFieldInvalid('password')}")
+      label {{'PASSWORD' | translate}}
+      input.form-control(type="password", name="password", required, ng-model="registerFormCtrl.formData.password")
+      .help-block(ng-show="registerForm.emailAddress.$error.email && (registerForm.emailAddress.$dirty || registerForm.submitted)") password must be at least 8 characters long, and include at least one uppercase letter and one number.
+
+    div(layout="row", layout-align="space-between center")
+      md-button.register-btn.md-raised.md-primary(type="submit", flex) {{ 'REGISTER_FORM.CREATE_ACCOUNT' | translate }}
+
+  .already-have-an-account-container(layout="column", flex, layout-align="end center")
+    .text-separator
+      span(translate="REGISTER_FORM.ALREADY_HAVE_ACCOUNT_SEPARATOR_MSG")
+      hr
+
+    div(layout="row", layout-align="space-between center")
+      md-button.go-to-sign-in-btn.md-accent(flex, ui-sref="anonymous.accounts.signIn") {{ 'REGISTER_FORM.SIGN_IN' | translate }}

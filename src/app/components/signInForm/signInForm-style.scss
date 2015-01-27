@@ -1,12 +1,6 @@
 $font-size-small: 12px;
 
 .sign-in-form {
-  // padding: 8px;
-
-  // md-input-container:last-child{
-  //   padding-bottom: 6px;
-  // }
-
   .remember-me-forgot-password-container{
     padding-bottom: 12px;
   }
@@ -15,28 +9,6 @@ $font-size-small: 12px;
   .forgot-password {
     span{
       font-size: $font-size-small;
-    }
-  }
-
-  .text-separator{
-    position: relative;
-    height: 34px;
-    text-align: center;
-    background: none;
-    margin-top: 8px;
-    font-size: $font-size-small;
-
-    span{
-      display: inline-block;
-      padding: 8px;
-      margin: 0;
-      background-color: #fff;
-    }
-
-    hr{
-      width: 90%;
-      margin: -16px auto 10px auto;
-      border-top: 1px solid #dce0e0;
     }
   }
 

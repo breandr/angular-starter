@@ -1,0 +1,10 @@
+{
+  "SIGN_IN_FORM": {
+    "SIGN_IN": "Sign in",
+    "REMEMBER_ME": "Remember me",
+    "FORGOT_PASSWORD": "Forgot password?",
+    "CREATE_ACCOUNT": "Create an account",
+    "SOCIAL_SIGN_IN_SEPARATOR_MSG": "or sign in with",
+    "NO_ACCOUNT_SEPARATOR_MSG": "don't have an account yet?"
+  }
+}

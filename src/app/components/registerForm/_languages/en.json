@@ -1,0 +1,7 @@
+{
+  "REGISTER_FORM": {
+    "CREATE_ACCOUNT": "Create Account",
+    "SIGN_IN": "Sign in",
+    "ALREADY_HAVE_ACCOUNT_SEPARATOR_MSG": "already have an account?"
+  }
+}

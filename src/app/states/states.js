@@ -1,5 +1,5 @@
 //import angular from 'angular';
-import './anonymous/anonymous';
+import './anonymous/anonymousState-module';
 import './authenticated/authenticatedState-module';
 
 try {

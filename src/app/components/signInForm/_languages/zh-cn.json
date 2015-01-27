@@ -1,7 +1,6 @@
 {
   "SIGN_IN_FORM": {
-    "MESSAGE": "登录到您的帐户",
-    "SUBMIT": "登录",
+    "SIGN_IN": "登录",
     "REMEMBER_ME": "记住我",
     "FORGOT_PASSWORD": "忘记密码？"
   }

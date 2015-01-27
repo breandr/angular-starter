@@ -1,5 +1,3 @@
-import 'components/__APP_NAME_CAMEL_CASED__/me/me-module';
-
 class AuthenticatedStateCtrl {
   constructor($scope, $timeout, $q, $state, $mdSidenav, me) {
     this.$q = $q;
@@ -8,9 +6,9 @@ class AuthenticatedStateCtrl {
     this.$state = $state;
     this.stateTitle = '__APP_TITLE__';
     this.me = me;
-    
+
     this.user = me.data;
-    
+
     angular.element('body').removeClass('anonymous').addClass('authenticated');
 
     $scope.$watch(() => $state.current.data.title, newValue => {

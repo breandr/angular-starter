@@ -105,7 +105,7 @@ class SignedInUserFactory {
             this.loadData();
 
             return response;
-          }, (reason) => {
+          }, reason => {
             return $q.reject(reason);
           });
           // return $resource('accounts').get('authenticate', {
@@ -126,11 +126,11 @@ class SignedInUserFactory {
       signOut() {
         return $auth.logout().then(() => {
           this.clearUserDetails();
-          $state.go('anonymous.signIn');
+          $state.go('anonymous.accounts.signIn');
         });
         // return $resource('accounts').delete('deauthenticate').then(() => {
         //   this.clearUserDetails();
-        //   $state.go('anonymous.signIn');
+        //   $state.go('anonymous.accounts.signIn');
         // });
       }
 

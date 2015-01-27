@@ -1,5 +1,5 @@
 //import angular from 'angular';
-import 'components/__APP_NAME_CAMEL_CASED__/api/api-module';
+import 'components/api/api-module';
 import 'components/__APP_NAME_CAMEL_CASED__/users/users-module';
 import UserFactory from './User-factory';
 
@@ -9,7 +9,7 @@ try {
   angular.module('__APP_NAME_CAMEL_CASED__.user');
 } catch (e) {
   userModule = angular.module('__APP_NAME_CAMEL_CASED__.user', [
-  '__APP_NAME_CAMEL_CASED__.api',
+  'api',
     '__APP_NAME_CAMEL_CASED__.users'
   ]).factory('User', UserFactory);
 }
