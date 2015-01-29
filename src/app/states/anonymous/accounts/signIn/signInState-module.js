@@ -1,12 +1,11 @@
 //import angular from 'angular';
-import 'components/signInForm/signInForm-module';
-import SignInStateCtrl from './signInStateCtrl-controller';
+import 'components/account/signInForm/signInForm-module';
 
 try {
   angular.module('__APP_NAME_CAMEL_CASED__.states.anonymous.accounts.signIn');
 } catch (e) {
   angular.module('__APP_NAME_CAMEL_CASED__.states.anonymous.accounts.signIn', [
-    'signInForm',
+    'account.signInForm',
     'me'
   ])
     .constant('PATH_TO_SIGN_IN_STATE', 'states/anonymous/accounts/signIn')
@@ -14,9 +13,7 @@ try {
       $stateProvider
         .state('anonymous.accounts.signIn', {
           url: '/sign-in/',
-          templateUrl: PATH_TO_SIGN_IN_STATE + '/signInState-template.html',
-          controller: 'SignInStateCtrl'
+          templateUrl: PATH_TO_SIGN_IN_STATE + '/signInState-template.html'
         });
-    })
-    .controller('SignInStateCtrl', SignInStateCtrl);
+    });
 }

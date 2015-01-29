@@ -1,0 +1,7 @@
+{
+  "FORGOT_PASSWORD_FORM": {
+    "SEND_EMAIL": "Send Email",
+    "CREATE_ACCOUNT": "Create Account",
+    "NO_ACCOUNT_SEPARATOR_MSG": "don't have an account yet?"
+  }
+}

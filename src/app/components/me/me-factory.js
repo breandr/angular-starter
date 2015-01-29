@@ -96,31 +96,27 @@ class SignedInUserFactory {
         return $auth.authenticate(provider);
       }
 
-      localSignIn(provider, email, password) {
-        if(provider === 'local'){
-          return $auth.login({
-            email, password
-          }).then(response => {
-            this.setUserDetails(_.omit(response.data, ['reqParams']));
-            this.loadData();
+      localSignIn(email, password) {
+        return $auth.login({
+          email, password
+        }).then(response => {
+          this.setUserDetails(_.omit(response.data, ['reqParams']));
+          this.loadData();
 
-            return response;
-          }, reason => {
-            return $q.reject(reason);
-          });
-          // return $resource('accounts').get('authenticate', {
-          //   email, password
-          // }).then(response => {
-          //   this.setUserDetails(_.omit(response.data, ['reqParams']));
-          //   this.loadData();
-          //
-          //   return response;
-          // }, (reason) => {
-          //   return $q.reject(reason);
-          // });
-        }else{
-          $auth.authenticate(provider);
-        }
+          return response;
+        }, reason => {
+          return $q.reject(reason);
+        });
+        // return $resource('accounts').get('authenticate', {
+        //   email, password
+        // }).then(response => {
+        //   this.setUserDetails(_.omit(response.data, ['reqParams']));
+        //   this.loadData();
+        //
+        //   return response;
+        // }, (reason) => {
+        //   return $q.reject(reason);
+        // });
       }
 
       signOut() {

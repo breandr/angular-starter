@@ -1,0 +1,12 @@
+{
+  "FORGOT_PASSWORD_FORM": {
+    "HEADING": "Forgot your password?",
+    "MSG": "Enter your email to reset your password",
+    "SEND_EMAIL": "Send Reset Instructions",
+    "CREATE_ACCOUNT": "Create Account",
+    "NO_ACCOUNT_SEPARATOR_MSG": "don't have an account yet?",
+    "EMAIL_SENT_MSG": "Password reset instructions have been sent to {{email}}.",
+    "EMAIL_SENT_SEPARATOR_MSG": "after you reset your password",
+    "SIGN_IN": "Sign In"
+  }
+}

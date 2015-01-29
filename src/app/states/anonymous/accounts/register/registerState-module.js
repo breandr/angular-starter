@@ -1,13 +1,11 @@
 //import angular from 'angular';
-import 'components/registerForm/registerForm-module';
-import RegisterStateCtrl from './registerStateCtrl-controller';
+import 'components/account/registerForm/registerForm-module';
 
 try {
   angular.module('__APP_NAME_CAMEL_CASED__.states.anonymous.accounts.register');
 } catch (e) {
   angular.module('__APP_NAME_CAMEL_CASED__.states.anonymous.accounts.register', [
-    // '__APP_NAME_CAMEL_CASED__.languages',
-    'registerForm',
+    'account.registerForm',
     'me'
   ])
     .constant('PATH_TO_REGISTER_STATE', 'states/anonymous/accounts/register')
@@ -15,9 +13,7 @@ try {
       $stateProvider
         .state('anonymous.accounts.register', {
           url: '/register/',
-          templateUrl: PATH_TO_REGISTER_STATE + '/registerState-template.html',
-          controller: 'RegisterStateCtrl'
+          templateUrl: PATH_TO_REGISTER_STATE + '/registerState-template.html'
         });
-    })
-    .controller('RegisterStateCtrl', RegisterStateCtrl);
+    });
 }

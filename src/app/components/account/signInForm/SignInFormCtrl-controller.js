@@ -7,7 +7,7 @@ class SignInFormCtrlFactory{
 
       localSignIn() {
         if (this.$scope.validator.isFormValid()) {
-          me.localSignIn('local', this.formData.email, this.formData.password).then(() => {
+          me.localSignIn(this.formData.email, this.formData.password).then(() => {
             this.$scope.signInForm.submitted = false;
 
             return me.goToDefaultState();

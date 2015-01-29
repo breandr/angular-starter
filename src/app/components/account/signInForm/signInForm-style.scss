@@ -7,9 +7,7 @@ $font-size-small: 12px;
 
   .remember-me,
   .forgot-password {
-    span{
-      font-size: $font-size-small;
-    }
+    font-size: $font-size-small;
   }
 
   .social-sign-in-container{
@@ -39,6 +37,12 @@ $font-size-small: 12px;
         &:hover {
           color: #e74b37;
         }
+    }
+  }
+
+  .no-account-container{
+    > div{
+      width: 100%;
     }
   }
 

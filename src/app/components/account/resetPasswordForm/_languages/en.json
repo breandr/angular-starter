@@ -1,0 +1,10 @@
+{
+  "RESET_PASSWORD_FORM": {
+    "NEW_PASSWORD": "New Password",
+    "HEADING": "Password Reset",
+    "MSG": "Enter your new password",
+    "RESET_PASSWORD": "Reset Password",
+    "SIGN_IN_SEPARATOR_MSG": "remember your password?",
+    "SIGN_IN": "Sign In"
+  }
+}

@@ -6,12 +6,12 @@ import RegisterFormCtrlFactory from './RegisterFormCtrl-controller';
 let registerFormModule = null;
 
 try {
-  angular.module('registerForm');
+  angular.module('account.registerForm');
 } catch (e) {
-  registerFormModule = angular.module('registerForm', [
+  registerFormModule = angular.module('account.registerForm', [
     'me'
   ])
-  .constant('REGISTER_FORM_MODULE_PATH', 'components/registerForm')
+  .constant('REGISTER_FORM_MODULE_PATH', 'components/account/registerForm')
     .directive('registerForm', registerFormDirective)
     .factory('RegisterFormCtrl', RegisterFormCtrlFactory);
 }

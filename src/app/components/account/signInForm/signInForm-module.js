@@ -6,12 +6,12 @@ import SignInFormCtrlFactory from './SignInFormCtrl-controller';
 let signInFormModule = null;
 
 try {
-  angular.module('signInForm');
+  angular.module('account.signInForm');
 } catch (e) {
-  signInFormModule = angular.module('signInForm', [
+  signInFormModule = angular.module('account.signInForm', [
     'me'
   ])
-  .constant('SIGN_IN_FORM_MODULE_PATH', 'components/signInForm')
+  .constant('SIGN_IN_FORM_MODULE_PATH', 'components/account/signInForm')
     .directive('signInForm', signInFormDirective)
     .factory('SignInFormCtrl', SignInFormCtrlFactory);
 }
