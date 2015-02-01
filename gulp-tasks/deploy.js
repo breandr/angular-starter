@@ -11,7 +11,7 @@ var buildPath = argv.release ? paths.release : paths.debug;
 gulp.task('deploy', function() {
   var publisher = awspublish.create({ bucket: 'rpg-com' });
 
-  return gulp.src(buildPath.root + '/**/*')
+  return gulp.src(buildPath.root + '**/*')
   .pipe(awspublishRouter({
     cache: {
       cacheTime: 300,

@@ -17,17 +17,7 @@ var paths = require('./config.js').paths,
   builder = require('systemjs-builder'),
   sourcemaps = require('gulp-sourcemaps');
 
-gulp.task('release', ['useref'], function() {
-  if (!argv.release) {
-    return;
-  }
-  // copy src for sourcemaps
-  gulp.src(paths.src.appRoot + '**', {
-    base: paths.src.root
-  })
-    .pipe(changed(paths.release.appRoot))
-    .pipe(gulp.dest(paths.release.root + 'src'));
-
+gulp.task('release', ['useref', 'copy-src-release'], function() {
   var dateTimeNow = new Date();
   var cacheBuster = '' + dateTimeNow.getFullYear() + dateTimeNow.getMonth() + dateTimeNow.getDate() + dateTimeNow.getHours() + dateTimeNow.getMinutes();
   var appFileName = 'app/app-' + cacheBuster;
@@ -79,7 +69,16 @@ gulp.task('release', ['useref'], function() {
     });
 });
 
-gulp.task('copy-release', function() {
+gulp.task('copy-src-release', function() {
+  // copy src for sourcemaps
+  return gulp.src(paths.src.appRoot + '**', {
+      base: paths.src.root
+    })
+    .pipe(changed(paths.release.appRoot))
+    .pipe(gulp.dest(paths.release.root + 'src'));
+});
+
+gulp.task('copy-vendor-release', function() {
   var filesToCopy = [
     paths.debug.appRoot + 'languages/*',
     paths.debug.root + 'fonts/**/*',
@@ -106,7 +105,7 @@ gulp.task('copy-release', function() {
     .pipe(gulp.dest(paths.release.root));
 });
 
-gulp.task('useref', ['copy-release'], function() {
+gulp.task('useref', ['copy-vendor-release'], function() {
   var vendorJsFilter = filter('js/vendor.js'),
     appCssFilter = filter('css/app.css'),
     vendorCssFilter = filter('css/vendor.css');
@@ -121,8 +120,8 @@ gulp.task('useref', ['copy-release'], function() {
 
   // vendor.js
   .pipe(vendorJsFilter)
-  // .pipe(ngAnnotate())
-  .pipe(sourcemaps.init())
+    // .pipe(ngAnnotate())
+    .pipe(sourcemaps.init())
     .pipe(uglify())
     .pipe(sourcemaps.write({
       includeContent: false,

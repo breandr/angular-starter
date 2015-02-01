@@ -14,7 +14,6 @@ module.exports = function(srcRoot, debugRoot, releaseRoot, pgDebugRoot, pgReleas
         views: srcRoot + 'views/',
         img: srcRoot + 'img/',
         sass: srcRoot + 'css/',
-        // vendor: srcRoot + 'vendor/',
         vendor: 'bower_components/',
         js: srcRoot + 'js/',
         fonts: srcRoot + 'fonts/',
