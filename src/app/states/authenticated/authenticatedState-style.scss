@@ -6,9 +6,6 @@
 
 }
 #appBar {
-  background-color: #1f1f1f;
-  color: #cecece;
-
   .nav-drawer-toggle {
     margin-left: -20px;
     margin-right: 0;
@@ -46,13 +43,11 @@
     width: 240px;
     max-width: 320px;
     padding: 0;
-    background-color: #3d3d3d;
-    color: #cecece;
 
     &:before,
     &:after {
       position: absolute;
-      border-bottom-color: #eee;
+      // border-bottom-color: #eee;
       display: inline-block !important;
       content: '';
 
@@ -90,7 +85,7 @@
 
 }
 #appBarActionButtons {
-  color: #999;
+  // color: #999;
 
   .action-button {
     position: relative;
@@ -114,7 +109,7 @@
   }
   .dropdown-menu {
     .md-button.button-alt {
-      background-color: #949494;
+      // background-color: #949494;
       text-align: center;
     }
     h6 {
@@ -181,7 +176,7 @@
     
     > a {
       background-color: inherit;
-      color: #999;
+      // color: #999;
       padding: 0;
     }
     
@@ -240,8 +235,6 @@
 //
 // }
 #sideNav {
-  color: #999;
-  background-color: #3d3d3d;
   width: 40px;
   transform: translate3d(0px, 0, 0);
   transition: width 0.3s ease-in-out;
@@ -251,7 +244,6 @@
   &.md-closed {
     .md-button {
       &:hover {
-        background-color: #3d3d3d;
         width: 240px;
 
         @media (min-width: 960px) {
@@ -265,7 +257,6 @@
         .sub-menu {
           display: block;
           width: 194px;
-          background-color: #3d3d3d;
           top: 100%;
           left: 46px;
           height: auto !important;
@@ -324,18 +315,20 @@
     }
 
   }
+  
   .md-button {
     transition: width 0.3s ease-in-out;
     z-index: 10;
     border-radius: 0;
-    background-color: #3d3d3d;
     padding: 12px 8px;
   }
+  
   .state-active,
   .md-button:hover {// > .md-button {
-    background-color: #474747;
+    background-color: inherit;
 
   }
+  
   .md-button {
     position: relative;
 
@@ -408,3 +401,132 @@
 // .nav > li > a.link-with-companion-action + a {
 //   padding-left: 8px;
 // }
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  text-transform: none;
+  width: 1px; }
+  
+  /************
+ * DOCS MENU
+ ************/
+.docs-menu,
+.docs-menu ul {
+  list-style: none;
+  padding: 0;
+}
+.docs-menu li {
+  margin: 0;
+}
+.docs-menu > li {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+.docs-menu .md-button {
+  border-radius: 0;
+  color: inherit;
+  cursor: pointer;
+  font-weight: 400;
+  line-height: 40px;
+  margin: 0;
+  max-height: 40px;
+  overflow: hidden;
+  padding: 0px 16px;
+  text-align: left;
+  text-decoration: none;
+  white-space: normal;
+  width: 100%;
+}
+.docs-menu a.md-button {
+  display: block;
+}
+.docs-menu button.md-button::-moz-focus-inner {
+  padding: 0;
+}
+.docs-menu .md-button.active {
+  color: #03a9f4;
+}
+.menu-heading {
+  color: #888;
+  display: block;
+  font-size: inherit;
+  font-weight: 500;
+  line-height: 40px;
+  margin: 0;
+  padding: 0px 16px;
+  text-align: left;
+  width: 100%;
+}
+.docs-menu li.parentActive,
+.docs-menu li.parentActive .menu-toggle-list {
+  background-color: #f6f6f6;
+}
+.menu-toggle-list {
+  background: #fff;
+  max-height: 1300px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  -webkit-transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
+  -webkit-transition-property: max-height;
+  -moz-transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
+  -moz-transition-property: max-height;
+  transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
+  transition-property: max-height;
+}
+.menu-toggle-list.ng-hide {
+  max-height: 0;
+}
+.docs-menu .menu-toggle-list a.md-button {
+  display: block;
+  padding: 0 16px 0 32px;
+  text-transform: none;
+}
+.md-button-toggle .md-toggle-icon {
+  background: transparent url(/img/icons/list_control_down.png) no-repeat center center;
+  background-size: 100% auto;
+  display: inline-block;
+  height: 24px;
+  margin: auto 0 auto auto;
+  speak: none;
+  width: 24px;
+  transition: transform 0.3s ease-in-out;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+}
+.md-button-toggle .md-toggle-icon.toggled {
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+/* End Docs Menu */
+
+.docs-logotype {
+  line-height:40px;
+  text-indent: 15px;
+}
+.docs-menu-icon {
+  background: none;
+  border: none;
+  margin-right: 16px;
+  padding: 0;
+}
+.docs-menu-separator-icon {
+  margin: 0;
+  padding: 0 10px;
+}
+.docs-menu-separator-icon img {
+  height: 16px;
+}
+.md-breadcrumb-page {
+  display: inline-block;
+  word-wrap: break-word;
+}
+@media (max-width: 400px) {
+  .docs-tools {
+    display: none;
+  }
+}

@@ -14,6 +14,7 @@ class UserFactory {
     return User;
   }
 }
+
 UserFactory.apiRoute = 'users';
 UserFactory.key = 'id';
 UserFactory.$inject = ['$resource', '$injector', 'Users'];

@@ -6,57 +6,81 @@ class AuthenticatedStateCtrl {
     this.$state = $state;
     this.stateTitle = '__APP_TITLE__';
     this.me = me;
-
     this.user = me.data;
-
-    angular.element('body').removeClass('anonymous').addClass('authenticated');
+    
+    this.sections = [{
+      name: 'Home',
+      url: '/',
+      type: 'link'
+    }, {
+      name: 'Admin',
+      type: 'heading',
+      children: [{
+        name: 'Users',
+        type: 'toggle',
+        pages: [{
+          name: 'Create User',
+          url: '/users/create',
+          type: 'link'
+        }, {
+          name: 'Find User',
+          url: '/users',
+          type: 'link'
+        }]
+      }]
+    }];
 
     $scope.$watch(() => $state.current.data.title, newValue => {
       this.stateTitle = newValue;
     });
+  }
 
-    $scope.$watch(() => this.$mdSidenav('sideNav').isOpen(), isOpen => {
-      let navDrawerToggle = angular.element('#sideNav .nav-drawer-toggle');
-
-      if (isOpen) {
-        navDrawerToggle.addClass('open');
-      } else {
-        navDrawerToggle.removeClass('open');
-      }
+  openMenu() {
+    this.$timeout(() => {
+      this.$mdSidenav('sideNav').open();
     });
   }
 
-  showQuickSearchField($event) {
-    this.$timeout(() => {
-      let quickSearch = angular.element('#appBarQuickSearch [name="quickSearch"]');
-      let quickSearchScope = quickSearch.data().$scope;
-      quickSearchScope.$select.activate();
-    });
+  toggleSelectSection(section) {
+    this.openedSection = (this.openedSection === section ? null : section);
+  }
+
+  toggleOpen(section) {
+    this.toggleSelectSection(section);
+  }
+
+  isOpen(section) {
+    return this.isSectionSelected(section);
+  }
+
+  isPageSelected(page) {
+    return this.currentPage === page;
+  }
+
+  isSelected(page) {
+    return this.isPageSelected(page);
+  }
+
+  isSectionSelected(section) {
+    var selected = false;
+    var openedSection = this.openedSection;
+
+    if (openedSection === section) {
+      selected = true;
+    } else if (section.children) {
+      section.children.forEach(function(childSection) {
+        if (childSection === openedSection) {
+          selected = true;
+        }
+      });
+    }
+    return selected;
   }
 
   toggleSideNav($event) {
     $event.preventDefault();
     $event.stopPropagation();
     this.$mdSidenav('sideNav').toggle();
-  }
-
-  onQuickSearchSelect($item, $model) {
-    switch ($item.type) {
-      case 'Activities':
-        this.$state.go('authenticated.core.activities.activity.activityOverview', {
-          activityId: $item.id
-        });
-        break;
-      case 'Clients':
-        this.$state.go('authenticated.core.clients.client.clientOverview', {
-          clientId: $item.id
-        });
-        break;
-    }
-  }
-
-  quickSearch(search) {
-    if (!search) return;
   }
 
   lockScreen() {}
